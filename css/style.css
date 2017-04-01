@@ -1,3 +1,49 @@
-body {
+ul {
+  padding-left: 0;
+  clear: both;
+}
+
+ul li {
+  float: left;
+  width: 64px;
+  height: 64px;
   background-color: black;
+  border: 1px solid black;
+  list-style-type: none;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+ul li.wall {
+  background: teal;
+}
+ul li.key {
+  background: yellow;
+}
+ul li.door {
+  background: green;
+}
+ul li.door.closed {
+  background: red;
+}
+ul li.player {
+  background-image: url("../images/smaller.png");
+}
+ul li.flip {
+  transform: scaleX(-1);
+}
+ul li.rat {
+  background-image: url("../images/rat.png");
+}
+
+.health {
+  height: 30px;
+  width: 200px;
+  background-color: red;
+}
+
+.health .bar {
+  height: 100%;
+  background-color: green;
 }
