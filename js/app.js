@@ -1,8 +1,14 @@
 $(function() {
-  function loadLevel(level) {
+  function loadLevel(levelData) {
+    // play the sound
+    $('audio.music').attr('src', 'audio/' + levelData.audio + '.mp3');
+
+    // reset health and empty grid
     setHealth(100);
     $('.grid').html('');
 
+    // build the grid
+    const level = levelData.level;
     for (let row = 0; row < level.length; row++){
       const cols = level[row].split('');
       const rowElement = $('<ul />');
@@ -11,24 +17,46 @@ $(function() {
       for (let col = 0; col < cols.length; col++) {
         const block = cols[col];
         const colElement = $('<li />');
+
+        // create a wall
         if (block === 'X') {
           colElement.addClass('wall');
         }
+
+        // create a player
         if (block === 'P') {
           colElement.addClass('player');
         }
+
+        // create a key
         if (block === 'K') {
           colElement.addClass('key');
         }
+
+        // create a closed door
         if (block === 'D') {
           colElement.addClass('door closed');
         }
+
+        // create a rat
         if (block === 'R') {
           colElement.addClass('rat enemy');
+          colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
+          colElement.attr('data-sound', 'squeak');
         }
+
+        // add a health bar if this block is an enemy
         if (colElement.hasClass('enemy')) {
           colElement.attr('data-health', 100);
+
+          const health = $('<div />');
+          health.addClass('enemy-health');
+          colElement.append(health);
+
+          const bar = $('<div />');
+          bar.addClass('bar');
+          health.append(bar);
         }
         rowElement.append(colElement);
       }
@@ -41,6 +69,7 @@ $(function() {
     return {x: x, y: y};
   }
 
+  // get all the blocks surrounding the input block
   function getSurroundingBlocks(block) {
     const surrounding = [];
     const coords = getCoordinates(block);
@@ -55,11 +84,16 @@ $(function() {
     return surrounding;
   }
 
+  // check if the player can walk onto this block
   function canWalk(block) {
     return !block.hasClass('wall') && !block.hasClass('enemy') && !block.hasClass('closed');
   }
 
   function setHealth(health) {
+    if (health <= 0) {
+      // TODO DIE
+    }
+
     $('.health').attr('data-health', health);
     $('.health .bar').css('width', health + '%')
   }
@@ -68,23 +102,49 @@ $(function() {
     return $('ul:nth-child(' + x +') li:nth-child(' + y + ')');
   }
 
+  // hit the closest enemy to the player
   function hitClosestEnemyTo(block) {
     const blocks = getSurroundingBlocks(block);
-    for (const block of blocks) {
-      if (block.hasClass('enemy')) {
-        const health = parseInt(block.attr('data-health'));
-        const hit = parseInt(block.attr('data-hit'));
+    for (const enemy of blocks) {
+      if (enemy.hasClass('enemy')) {
+        const sound = enemy.attr('data-sound');
+
+        // play sound with a delay so punch sound can be heard
+        setTimeout(function() {
+          playSound(sound);
+        }, 300);
+
+        const health = parseInt(enemy.attr('data-health'));
+        const hit = parseInt(enemy.attr('data-hit'));
         const newHealth = health - hit;
+
         if (newHealth <= 0) {
-          block.attr('class', '');
+          // enemy is dead so replace them with an empty block
+          enemy.replaceWith('<li></li>');
         } else {
-          block.attr('data-health', newHealth);
+          enemy.attr('data-health', newHealth);
+          enemy.find('.bar').css('width', newHealth + '%');
         }
+        return;
       }
     }
   }
 
+  let lastMovementTime;
+  let lastAttackTime;
+
   $('body').keydown(function(e) {
+    e.preventDefault();
+
+    const timeNow = Date.now();
+    const timeMoveDelta = timeNow - lastMovementTime;
+    // make sure you can only move 5 blocks a second
+    if (lastMovementTime && timeMoveDelta < 200) {
+      return;
+    } else {
+      lastMovementTime = timeNow;
+    }
+
     const player = $('.player');
     const coords = getCoordinates(player);
     let x = coords.x;
@@ -93,24 +153,32 @@ $(function() {
     const originalX = x;
     const originalY = y;
 
-    if (e.key === 's') {
+    if (e.key === 's' || e.key === 'ArrowDown') {
       x++;
     }
 
-    if (e.key === 'w') {
+    if (e.key === 'w' || e.key === 'ArrowUp') {
       x--;
     }
 
-    if (e.key === 'a') {
+    if (e.key === 'a' || e.key === 'ArrowLeft') {
       y--;
     }
 
-    if (e.key === 'd') {
+    if (e.key === 'd' || e.key === 'ArrowRight') {
       y++;
     }
 
     if (e.key === ' ') {
-      hitClosestEnemyTo(player);
+      // make sure you can only attack once every 0.5 seconds
+      const timeMoveDelta = timeNow - lastAttackTime;
+      if (lastAttackTime && timeMoveDelta < 500) {
+        return;
+      } else {
+        lastAttackTime = timeNow;
+        hitClosestEnemyTo(player);
+        playSound('smack');
+      }
     }
 
     const goingLeft = y < originalY;
@@ -120,56 +188,125 @@ $(function() {
       player.removeClass('player flip');
       newBlock.addClass('player');
 
+      // open all doors in the level if the block being moved to is a key
       if (newBlock.hasClass('key')) {
+        playSound('pickup-keys');
         newBlock.removeClass('key');
         $('.door').removeClass('closed');
       }
 
+      // advance to the next level if the block being moved to is a door
       if (newBlock.hasClass('door')) {
-        nextLevel();
+        playSound('door-open');
+        $('.grid').fadeOut(1000, function() {
+          nextLevel();
+          $('.grid').fadeIn(1000);
+        });
       }
 
+      // flip the player so they face left
       if (goingLeft) {
         newBlock.addClass('flip');
       }
     }
   });
 
+  // load the next level on the levels array
   function nextLevel() {
     if (levels.length) {
       loadLevel(levels.shift());
     } else {
-      alert('you win')
+      alert('you win');
     }
   }
 
+  // play a sound inside the audio folder
+  function playSound(name) {
+    const audio = $('<audio />');
+    audio.attr('autoplay', true);
+    audio.attr('src', 'audio/' + name + '.mp3');
+    $('body').append(audio);
+
+  }
+
+  // get a random value from the array
+  function random(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
+
+  // make enemies move every 2 seconds or attack player if nearby
+  setInterval(function() {
+    const enemies = $('.enemy');
+    enemies.each(function(){
+      const enemy = $(this);
+      const blocks = getSurroundingBlocks(enemy);
+
+      for (const block of blocks) {
+        if (block.hasClass('player')) {
+          // attack player
+          const damage = parseInt(enemy.attr('data-damage'));
+          const playerHealth = parseInt($('.health').attr('data-health'));
+          setHealth(playerHealth - damage);
+          playSound('player-hit');
+
+          // return to stop the enemy from moving
+          return;
+        }
+      }
+
+      const possibleBlocks = blocks.filter(function(block) {
+        return block.length && !block.attr('class');
+      });
+      if (possibleBlocks.length) {
+        const newBlock = random(possibleBlocks);
+
+        // 50% chance of the enemy flipping to face the other direction
+        if (Math.random() > 0.5) {
+          enemy.toggleClass('flip');
+        }
+
+        // move the enemy to the new position
+        newBlock.replaceWith(enemy.clone());
+
+        // replace the enemy's previous position with an empty block
+        enemy.replaceWith('<li></li>');
+      }
+    });
+  }, 2000);
+
   const levels = [
-    [
-      'XXXXXXXXXXXXXXXXXX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOROOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOKOOOX',
-      'XOOOOOOOPOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'DOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XXXXXXXXXXXXXXXXXX'
-    ],
-    [
-      'XXXXXXXXXXXXXXXXXX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOORRRRROOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOKOOOX',
-      'XOOOOOOOPOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'DOOOOOOOOOOOOOOOOX',
-      'XOOOOOOOOOOOOOOOOX',
-      'XXXXXXXXXXXXXXXXXX'
-    ]
+    {
+      audio: 'ghost-ritual',
+      level: [
+        'XXXXXXXXXXXXXXXXXX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOROOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOKOOOX',
+        'XOOOOOOOPOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'DOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XXXXXXXXXXXXXXXXXX'
+      ]
+    },
+    {
+      audio: 'ghost-ritual',
+      level: [
+        'XXXXXXXXXXXXXXXXXX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOORRRRROOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOKOOOX',
+        'XOOOOOOOPOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'DOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XXXXXXXXXXXXXXXXXX'
+      ]
+    }
   ];
 
   nextLevel();

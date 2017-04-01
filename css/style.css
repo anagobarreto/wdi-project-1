@@ -1,3 +1,8 @@
+.container {
+  width: 1152px;
+  margin: 0 auto;
+}
+
 ul {
   padding-left: 0;
   clear: both;
@@ -8,7 +13,6 @@ ul li {
   width: 64px;
   height: 64px;
   background-color: black;
-  border: 1px solid black;
   list-style-type: none;
   background-size: auto 100%;
   background-position: center;
@@ -16,23 +20,31 @@ ul li {
 }
 
 ul li.wall {
+  box-sizing: border-box;
   background: teal;
+  border: 1px solid black;
 }
+
 ul li.key {
   background: yellow;
 }
+
 ul li.door {
   background: green;
 }
+
 ul li.door.closed {
   background: red;
 }
+
 ul li.player {
   background-image: url("../images/smaller.png");
 }
+
 ul li.flip {
   transform: scaleX(-1);
 }
+
 ul li.rat {
   background-image: url("../images/rat.png");
 }
@@ -44,6 +56,18 @@ ul li.rat {
 }
 
 .health .bar {
+  height: 100%;
+  background-color: green;
+}
+
+.enemy-health {
+  margin-top: -10px;
+  height: 10px;
+  width: 100%;
+  background-color: red;
+}
+
+.enemy-health .bar {
   height: 100%;
   background-color: green;
 }
