@@ -1,5 +1,9 @@
 $(function() {
+  let currentLevel;
+
   function loadLevel(levelData) {
+    currentLevel = levelData;
+
     // play the sound
     $('audio.music').attr('src', 'audio/' + levelData.audio + '.mp3');
 
@@ -41,6 +45,22 @@ $(function() {
         // create a rat
         if (block === 'R') {
           colElement.addClass('rat enemy');
+          colElement.attr('data-damage', 20);
+          colElement.attr('data-hit', 25);
+          colElement.attr('data-sound', 'squeak');
+        }
+
+        // create a cat
+        if (block === 'C') {
+          colElement.addClass('orion enemy');
+          colElement.attr('data-damage', 20);
+          colElement.attr('data-hit', 25);
+          colElement.attr('data-sound', 'squeak');
+        }
+
+        // create a bat
+        if (block === 'B') {
+          colElement.addClass('bat enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
           colElement.attr('data-sound', 'squeak');
@@ -91,15 +111,25 @@ $(function() {
 
   function setHealth(health) {
     if (health <= 0) {
-      // TODO DIE
-    }
+      const lives = $('.life');
 
-    $('.health').attr('data-health', health);
-    $('.health .bar').css('width', health + '%')
+      // if only one life left, then it's a game over
+      if (lives.length === 1) {
+        alert('game over');
+      } else {
+        // otherwise, remove a life
+        lives.last().removeClass('life');
+
+        loadLevel(currentLevel);
+      }
+    } else {
+      $('.health').attr('data-health', health);
+      $('.health .bar').css('width', health + '%');
+    }
   }
 
   function getBlock(x,y) {
-    return $('ul:nth-child(' + x +') li:nth-child(' + y + ')');
+    return $('.grid ul:nth-child(' + x +') li:nth-child(' + y + ')');
   }
 
   // hit the closest enemy to the player
@@ -281,12 +311,12 @@ $(function() {
         'XXXXXXXXXXXXXXXXXX',
         'XOOOOOOOOOOOOOOOOX',
         'XOOOOOOOROOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
+        'XOOCOOOOOOOOOOOOOX',
         'XOOOOOOOOOOOOKOOOX',
         'XOOOOOOOPOOOOOOOOX',
         'XOOOOOOOOOOOOOOOOX',
         'XOOOOOOOOOOOOOOOOX',
-        'DOOOOOOOOOOOOOOOOX',
+        'DOOBOOOOOOOOOOOOOX',
         'XOOOOOOOOOOOOOOOOX',
         'XXXXXXXXXXXXXXXXXX'
       ]

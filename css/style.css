@@ -3,50 +3,78 @@
   margin: 0 auto;
 }
 
-ul {
-  padding-left: 0;
-  clear: both;
+.lives {
+  float: right;
+}
+
+.lives li {
+  width: 60px;
+  height: 60px;
+  background-image: url("../images/death.png");
+  background-size: 100% auto;
+  margin-left: 10px;
+}
+
+.lives li.life {
+  background-image: url("../images/lives.png");
+  background-size: 100% auto;
 }
 
 ul li {
   float: left;
+  list-style-type: none;
+}
+
+.grid ul {
+  padding-left: 0;
+  clear: both;
+}
+
+.grid ul li {
   width: 64px;
   height: 64px;
-  background-color: black;
-  list-style-type: none;
+  background-color: #eee;
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-ul li.wall {
+.grid ul li.wall {
   box-sizing: border-box;
   background: teal;
   border: 1px solid black;
 }
 
-ul li.key {
+.grid ul li.key {
   background: yellow;
 }
 
-ul li.door {
+.grid ul li.door {
   background: green;
 }
 
-ul li.door.closed {
+.grid ul li.door.closed {
   background: red;
 }
 
-ul li.player {
+.grid ul li.player {
   background-image: url("../images/smaller.png");
 }
 
-ul li.flip {
+.grid ul li.flip {
   transform: scaleX(-1);
 }
 
-ul li.rat {
+.grid ul li.rat {
   background-image: url("../images/rat.png");
+}
+
+.grid ul li.orion {
+  background-image: url("../images/Orionbig.png");
+}
+
+.grid ul li.bat {
+  background-image: url("../images/batone.png");
 }
 
 .health {
