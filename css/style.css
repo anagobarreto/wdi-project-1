@@ -40,13 +40,12 @@ ul li {
 }
 
 .grid ul li.wall {
-  box-sizing: border-box;
-  background: teal;
-  border: 1px solid black;
+  background-image: url("../images/wall.png");
 }
 
 .grid ul li.key {
-  background: yellow;
+  background-image: url("../images/key.png");
+  background-size: 100% auto;
 }
 
 .grid ul li.door {
