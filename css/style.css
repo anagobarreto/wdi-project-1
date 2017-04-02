@@ -21,19 +21,26 @@
 }
 
 ul li {
-  float: left;
+  display: inline-block;
   list-style-type: none;
+}
+
+.grid {
+  clear: both;
+  background-size: 64px;
+  background-image: url("../images/floor.png");
 }
 
 .grid ul {
   padding-left: 0;
   clear: both;
+  margin: 0;
+  height: 64px;
 }
 
 .grid ul li {
   width: 64px;
   height: 64px;
-  background-color: #eee;
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,11 +56,12 @@ ul li {
 }
 
 .grid ul li.door {
-  background: green;
+  background: black;
 }
 
 .grid ul li.door.closed {
-  background: red;
+  background-image: url("../images/door.png");
+  background-size: 100% auto;
 }
 
 .grid ul li.player {
@@ -69,32 +77,40 @@ ul li {
 }
 
 .grid ul li.orion {
-  background-image: url("../images/Orionbig.png");
+  background-image: url("../images/orionmove.gif");
 }
 
 .grid ul li.bat {
-  background-image: url("../images/batone.png");
+  background-image: url("../images/batmove.gif");
+}
+
+.health, .enemy-health {
+  background-color: #E53935;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.health .bar, .enemy-health .bar {
+  background-color: #66BB6A;
 }
 
 .health {
   height: 30px;
   width: 200px;
-  background-color: red;
 }
 
 .health .bar {
+  transition: all 500ms linear;
   height: 100%;
-  background-color: green;
 }
 
 .enemy-health {
   margin-top: -10px;
   height: 10px;
   width: 100%;
-  background-color: red;
 }
 
 .enemy-health .bar {
+  transition: all 500ms linear;
   height: 100%;
-  background-color: green;
 }
