@@ -36,6 +36,21 @@ $(function() {
         if (block === 'K') {
           colElement.addClass('key');
         }
+        // create a fast potion
+        if (block === 'F') {
+          colElement.addClass('fast potion');
+        }
+        // create a health potion
+        if (block === 'H') {
+          colElement.addClass('hp potion');
+        }
+        // create a strong potion
+        if (block === 'S') {
+          colElement.addClass('strong potion');
+        }
+        if (block === 'M') {
+          colElement.addClass('coin');
+        }
 
         // create a closed door
         if (block === 'D') {
@@ -51,7 +66,7 @@ $(function() {
         }
 
         // create a cat
-        if (block === 'C') {
+        if (block === 'G') {
           colElement.addClass('orion enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
@@ -61,6 +76,21 @@ $(function() {
         // create a bat
         if (block === 'B') {
           colElement.addClass('bat enemy');
+          colElement.attr('data-damage', 20);
+          colElement.attr('data-hit', 25);
+          colElement.attr('data-sound', 'squeak');
+        }
+
+        // create a crab
+        if (block === 'C') {
+          colElement.addClass('crab enemy');
+          colElement.attr('data-damage', 20);
+          colElement.attr('data-hit', 25);
+          colElement.attr('data-sound', 'squeak');
+        }
+        // create a snake
+        if (block === 'V') {
+          colElement.addClass('snake enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
           colElement.attr('data-sound', 'squeak');
@@ -214,6 +244,7 @@ $(function() {
     const goingLeft = y < originalY;
 
     const newBlock = getBlock(x,y);
+    console.log(newBlock.get(0));
     if (canWalk(newBlock)) {
       player.removeClass('player flip');
       newBlock.addClass('player');
@@ -223,6 +254,10 @@ $(function() {
         playSound('pickup-keys');
         newBlock.removeClass('key');
         $('.door').removeClass('closed');
+      }
+      if (newBlock.hasClass('coin')) {
+        playSound('pickup-keys');
+        newBlock.removeClass('coin');
       }
 
       // advance to the next level if the block being moved to is a door
@@ -309,16 +344,16 @@ $(function() {
       audio: 'ghost-ritual',
       level: [
         'XXXXXXXXXXXXXXXXXX',
-        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOGOOOOOOX',
         'XOOOXXOOROOOOOOOOX',
-        'XOOCOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOKOOOX',
+        'XOOCOOOOOOSFOOOOOX',
+        'XOOSOOOOOOOOOKOOOX',
         'XOOOOOOOPOOOOXXOOX',
-        'XOXXXOOOOOOOOOOOOX',
+        'XOXXXOOOOMOOOOHOOX',
         'XOOOXOOOOOOXOOOOOX',
-        'DOOBXOOXOOOXOOOOOX',
-        'XOOOXOOXXXXXOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
+        'DOOBXOOXOOVXOOOOOX',
+        'XOOOXOOXSXXXOOOOOX',
+        'XOOOFOOOOOOOOOOOOX',
         'XXXXXXXXXXXXXXXXXX'
       ]
     },

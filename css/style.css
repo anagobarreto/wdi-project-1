@@ -21,7 +21,7 @@
 }
 
 ul li {
-  display: inline-block;
+  float: left;
   list-style-type: none;
 }
 
@@ -54,7 +54,23 @@ ul li {
   background-image: url("../images/key.png");
   background-size: 100% auto;
 }
+.grid ul li.hp.potion {
+  background-image: url("../images/hppotion.png");
+  background-size: 100% auto;
+}
 
+.grid ul li.strong.potion {
+  background-image: url("../images/strongpotion.png");
+  background-size: 100% auto;
+}
+.grid ul li.fast.potion {
+  background-image: url("../images/fastpotion.png");
+  background-size: 100% auto;
+}
+.grid ul li.coin {
+  background-image: url("../images/coin.png");
+  background-size: 100% auto;
+}
 .grid ul li.door {
   background: black;
 }
@@ -74,6 +90,12 @@ ul li {
 
 .grid ul li.rat {
   background-image: url("../images/rat.png");
+}
+.grid ul li.crab {
+  background-image: url("../images/crab.png");
+}
+.grid ul li.snake {
+  background-image: url("../images/snake.png");
 }
 
 .grid ul li.orion {
