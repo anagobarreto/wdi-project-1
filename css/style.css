@@ -1,10 +1,27 @@
 .container {
-  width: 1152px;
+  width: 1000px;
   margin: 0 auto;
 }
 
+header {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.logo {
+  margin: 0 auto;
+  background-image: url("../images/Logo.gif");
+  height: 80px;
+  width: 210px;
+  background-size: 100% auto;
+}
+
 .lives {
-  float: right;
+  position: absolute;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  top: 10px;
 }
 
 .lives li {
@@ -27,7 +44,7 @@ ul li {
 
 .grid {
   clear: both;
-  background-size: 64px;
+  background-size: 48px;
   background-image: url("../images/floor.png");
 }
 
@@ -35,12 +52,12 @@ ul li {
   padding-left: 0;
   clear: both;
   margin: 0;
-  height: 64px;
+  height: 48px;
 }
 
 .grid ul li {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -119,6 +136,9 @@ ul li {
 .health {
   height: 30px;
   width: 200px;
+  position: absolute;
+  left: 0;
+  top: 25px;
 }
 
 .health .bar {
