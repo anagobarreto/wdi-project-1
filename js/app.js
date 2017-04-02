@@ -38,7 +38,7 @@ $(function() {
         }
         // create a fast potion
         if (block === 'F') {
-          colElement.addClass('fast potion');
+          colElement.addClass('speed potion');
         }
         // create a health potion
         if (block === 'H') {
@@ -70,7 +70,7 @@ $(function() {
           colElement.addClass('orion enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'squeak');
+          colElement.attr('data-sound', 'meow');
         }
 
         // create a bat
@@ -78,7 +78,7 @@ $(function() {
           colElement.addClass('bat enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'squeak');
+          colElement.attr('data-sound', 'bat', 'batsqueak');
         }
 
         // create a crab
@@ -140,6 +140,7 @@ $(function() {
   }
 
   function setHealth(health) {
+    health = Math.min(health, 100);
     if (health <= 0) {
       const lives = $('.life');
 
@@ -199,7 +200,7 @@ $(function() {
     const timeNow = Date.now();
     const timeMoveDelta = timeNow - lastMovementTime;
     // make sure you can only move 5 blocks a second
-    if (lastMovementTime && timeMoveDelta < 200) {
+    if (lastMovementTime && timeMoveDelta < 150) {
       return;
     } else {
       lastMovementTime = timeNow;
@@ -255,9 +256,26 @@ $(function() {
         newBlock.removeClass('key');
         $('.door').removeClass('closed');
       }
+
       if (newBlock.hasClass('coin')) {
-        playSound('pickup-keys');
+        playSound('coin');
         newBlock.removeClass('coin');
+      }
+
+      if (newBlock.hasClass('hp potion')) {
+        playSound('potionhealth');
+        newBlock.removeClass('hp potion');
+        setHealth(parseInt($('.health').attr('data-health')) + 40);
+      }
+
+      if (newBlock.hasClass('speed potion')) {
+        playSound('potionspeed');
+        newBlock.removeClass('speed potion');
+      }
+
+      if (newBlock.hasClass('strong potion')) {
+        playSound('potionstrong');
+        newBlock.removeClass('strong potion');
       }
 
       // advance to the next level if the block being moved to is a door
@@ -348,7 +366,7 @@ $(function() {
         'XOOOXXOOROOOOOOOOX',
         'XOOCOOOOOOSFOOOOOX',
         'XOOSOOOOOOOOOKOOOX',
-        'XOOOOOOOPOOOOXXOOX',
+        'XOOOOOHOPOOOOXXOOX',
         'XOXXXOOOOMOOOOHOOX',
         'XOOOXOOOOOOXOOOOOX',
         'DOOBXOOXOOVXOOOOOX',

@@ -63,7 +63,7 @@ ul li {
   background-image: url("../images/strongpotion.png");
   background-size: 100% auto;
 }
-.grid ul li.fast.potion {
+.grid ul li.speed.potion {
   background-image: url("../images/fastpotion.png");
   background-size: 100% auto;
 }
