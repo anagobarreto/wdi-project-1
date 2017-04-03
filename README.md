@@ -8,18 +8,46 @@
   **First project for WDI LONDON**
 </p>
 **Welcome to my first project for the WDI course in GA London.**
-
-Instructions:
+___
+##Instructions:
 You need to get a key to be able to open the door:
-<img src="images/key.png" width:"50">
-<img src="images/door.png" width:"50">
+<img src="images/key.png" width:"80">
+<img src="images/door.png" width:"80">
 
-Keys:
-W || ArrowUp
-D || ArrowRight
-S || ArrowDown
-A || ArrowLeft
+Once you go through the door you'll go to the next level. You can earn points by collecting the coins. You'll find some potions throughout the levels.
+___
+##Potions:
+<p align="center">
+  __The health potion:__
+<br>
+<img src="images/hppotion.png" width:"40">
+</p>
+If you get the health potion your health will be restored by 40pts.
 
+
+<p align="center">
+  __The fast potion:__
+<br>
+<img src="images/fastpotion.png" width:"40">
+</p>
+If you get the fast potion you'll move much faster.
+
+
+<p align="center">
+The strong potion:
+<br>
+<img src="images/strongpotion.png" width:"40">
+</p>
+If you get the strong potion the attacks that you'll receive will damage your health less.
+___
+##Controls:
+Keys
+<p align="center">
+W || ArrowUp <br>
+D || ArrowRight <br>
+S || ArrowDown <br>
+A || ArrowLeft <br>
+</p>
 
 
 Media:
