@@ -4,7 +4,7 @@ $(function() {
   // $(function () {  // need to fix the flashy whites and the location of the background
   //   const body = $('body');
   //   const backgrounds = [
-  //     'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/27893_pixelated_pixel_landscape.jpg)',
+  //     url('images/night.jpg'),
   //     'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)',
   //     'url(http://more-sky.com/data/out/6/IMG_127747.png)'];
   //   var current = 0;
@@ -270,7 +270,7 @@ $(function() {
       player.removeClass('player flip');
       newBlock.addClass('player');
 
-      // open all doors in the level if the block being moved to is a key
+      // open door in the level if the block being moved to is a key
       if (newBlock.hasClass('key')) {
         playSound('pickup-keys');
         newBlock.removeClass('key');
@@ -405,17 +405,22 @@ $(function() {
     {
       audio: 'ghost-ritual',
       level: [
-        'XXXXXXXXXXXXXXXXXX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOORRRRROOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOKOOOX',
-        'XOOOOOOOPOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'DOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XXXXXXXXXXXXXXXXXX'
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'XOXOOOMOOXOOOOOOXOOOOOOOOX',
+        'XOXBXXXXOXOXXROXOXOOOXOXOX',
+        'XOXOOOOOOOOOOXOXOXOOOXOXOX',
+        'XOOOXOXOXXXOXOOXOXOOOXOOOX',
+        'XXXOOOOOOOOOXXOOOOOOOOOOXX',
+        'XOXXXOXOOXOOOOXOXOOOOXXOXX',
+        'XOOOXOOXOXXXXOXOXXOOOOXOOX',
+        'XOXKXOXOOXOOXOXOOOOOOOOOOX',
+        'XOOXOOOXOOOOXOOXOXOXOOOXXX',
+        'XXOOOOOOOXOXXOOXOOOXXOOOXX',
+        'XXXOXXXOXOXOOOXXOXOXXXOOOX',
+        'XOOOXMXOXOOOXXOOOOOOOOXXOX',
+        'XXXXXBXOXOXOOOOXXXOOOXXOOX',
+        'XMOOOOOOOOOXOOXMOROXROOOOX',
+        'XXXXXXXXXXXXXXXXXXXXXXDXXX'
       ]
     }
   ];
