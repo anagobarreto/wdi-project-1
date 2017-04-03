@@ -1,5 +1,24 @@
 $(function() {
   let currentLevel;
+// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
+  $(function () {
+    const body = $('body');
+    const backgrounds = [
+      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/27893_pixelated_pixel_landscape.jpg)',
+      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)'];
+    var current = 0;
+
+    function nextBackground() {
+      body.css(
+        'background',
+        backgrounds[current = ++current % backgrounds.length]);
+
+      setTimeout(nextBackground, 5000);
+    }
+    setTimeout(nextBackground, 5000);
+    body.css('background', backgrounds[0]);
+  });
+// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
 
   function loadLevel(levelData) {
     currentLevel = levelData;
