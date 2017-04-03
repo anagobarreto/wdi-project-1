@@ -11,8 +11,8 @@
 
 Instructions:
 You need to get a key to be able to open the door:
-<img src="images/key.png">
-<img src="images/door.png"
+<img src="images/key.png" width:"50">
+<img src="images/door.png" width:"50">
 
 Keys:
 W || ArrowUp
