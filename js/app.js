@@ -334,7 +334,7 @@ $(function() {
 
   // get a random value from the array
   function random(arr) {
-    return arr[Math.floor(Math.random() * arr.length)]
+    return arr[Math.floor(Math.random() * arr.length)];
   }
 
   // make enemies move every 2 seconds or attack player if nearby
@@ -378,47 +378,47 @@ $(function() {
   }, 2000);
 
   const levels = [
-        {
-          audio: 'ghost-ritual',
-          level: [
-            'XXXXXXXXXXXXXXXXXXXXXXXXXX',
-            'XMOOOOOOXOXOMOXXOOOOOOOOOX',
-            'XORXOXOOOOOOXOOXOOMXOOOOOD',
-            'XOXOXXOXOOXOXXOOOOOOOXOOOX',
-            'XOOOOOOXOMXOOOOXXXXOOOOOOX',
-            'XXXXOXXXOXXOXXOXOOOOOOXXXX',
-            'XROOOXOOOOOORXOXOXOOOOOOOX',
-            'XOXXOXOXXXOXOXOXRMXOOOOXXX',
-            'XOXMOXOXOOOXOOOXXXXOOOOOOX',
-            'XOXOXXOOKOOOOOOOOOOOOOOOOX',
-            'XOOROOPXXOXXXOOXOOXOOOOXXX',
-            'XOXOOXOOXOXOXOOXOOXXXOOOOX',
-            'XOXXOXXXOOOOOOOXOOOOOOOOOX',
-            'XOOOOOOOOOXRXXXXOXXXOOOXXX',
-            'XOOMXOOXOOXOOOMXXOXOOOOOOX',
-            'XXXXXXXXXXXXXXXXXXXXXXXXXX'
-          ]
-        },
+    {
+      audio: 'ghost-ritual',
+      level: [
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'XMOOOOOOXOXOMOXXOOOOOOOOOX',
+        'XORXOXOOOOOOXOOXOOMXOOOOOD',
+        'XOXOXXOXOOXOXXOOOOOOOXOOOX',
+        'XOOOOOOXOMXOOOOXXXXOOOOOOX',
+        'XXXXOXXXOXXOXXOXOOOOOOXXXX',
+        'XROOOXOOOOOORXOXOXOOOOOOOX',
+        'XOXXOXOXXXOXOXOXRMXOOOOXXX',
+        'XOXMOXOXOOOXOOOXXXXOOOOOOX',
+        'XOXOXXOOKOOOOOOOOOOOOOOOOX',
+        'XOOROOPXXOXXXOOXOOXOOOOXXX',
+        'XOXOOXOOXOXOXOOXOOXXXOOOOX',
+        'XOXXOXXXOOOOOOOXOOOOOOOOOX',
+        'XOOOOOOOOOXRXXXXOXXXOOOXXX',
+        'XOOMXOOXOOXOOOMXXOXOOOOOOX',
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      ]
+    },
 
 
 
-        {
-          audio: 'ghost-ritual',
-          level: [
-            'XXXXXXXXXXXXXXXXXX',
-            'XOOOOOOOOOOOOOOOOX',
-            'XOOOOOOORRRRROOOOX',
-            'XOOOOOOOOOOOOOOOOX',
-            'XOOOOOOOOOOOOKOOOX',
-            'XOOOOOOOPOOOOOOOOX',
-            'XOOOOOOOOOOOOOOOOX',
-            'XOOOOOOOOOOOOOOOOX',
-            'DOOOOOOOOOOOOOOOOX',
-            'XOOOOOOOOOOOOOOOOX',
-            'XXXXXXXXXXXXXXXXXX'
-          ]
-        }
-      ];
+    {
+      audio: 'ghost-ritual',
+      level: [
+        'XXXXXXXXXXXXXXXXXX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOORRRRROOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOKOOOX',
+        'XOOOOOOOPOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'DOOOOOOOOOOOOOOOOX',
+        'XOOOOOOOOOOOOOOOOX',
+        'XXXXXXXXXXXXXXXXXX'
+      ]
+    }
+  ];
 
-      nextLevel();
-    });
+  nextLevel();
+});
