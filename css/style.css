@@ -161,3 +161,9 @@ footer {
   color: purple;
   font-size: 20px;
 }
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

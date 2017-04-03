@@ -20,25 +20,25 @@ ___
 <p align="center">
   __The health potion:__
 <br>
-<img src="images/hppotion.png" width:"40">
+<img src="images/hppotion.png" height:"20">
 </p>
-If you get the health potion your health will be restored by 40pts.
+<p align="center">If you get the health potion your health will be restored by 40pts.</p>
 
 
 <p align="center">
   __The fast potion:__
 <br>
-<img src="images/fastpotion.png" width:"40">
+<img src="images/fastpotion.png" height:"20">
 </p>
-If you get the fast potion you'll move much faster.
+<p align="center">If you get the fast potion you'll move much faster.</p>
 
 
 <p align="center">
 The strong potion:
 <br>
-<img src="images/strongpotion.png" width:"40">
+<img src="images/strongpotion.png" height:"20">
 </p>
-If you get the strong potion the attacks that you'll receive will damage your health less.
+<p align="center"> If you get the strong potion the attacks that you'll receive will damage your health less. </p>
 ___
 ##Controls:
 Keys
