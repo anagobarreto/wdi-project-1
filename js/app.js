@@ -1,11 +1,12 @@
 $(function() {
   let currentLevel;
 // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
-  $(function () {
+  $(function () {  // need to fix the flashy whites and the location of the background
     const body = $('body');
     const backgrounds = [
       'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/27893_pixelated_pixel_landscape.jpg)',
-      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)'];
+      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)',
+      'url(http://more-sky.com/data/out/6/IMG_127747.png)'];
     var current = 0;
 
     function nextBackground() {
@@ -13,9 +14,9 @@ $(function() {
         'background',
         backgrounds[current = ++current % backgrounds.length]);
 
-      setTimeout(nextBackground, 5000);
+      setTimeout(nextBackground, 2000);
     }
-    setTimeout(nextBackground, 5000);
+    setTimeout(nextBackground, 2000);  // made it faster to test it - change later
     body.css('background', backgrounds[0]);
   });
 // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
@@ -377,23 +378,51 @@ $(function() {
   }, 2000);
 
   const levels = [
+    // {
+    //   audio: 'ghost-ritual',
+    //   level: [
+    //     'XXXXXXXXXXXXXXXXXXXX',
+    //     'XOOOOOOOOOGOOOOOOOOX',
+    //     'XOOOXXOOROOOOOOOOOOX',
+    //     'XOOCOOOOOOSFOOOOOOOX',
+    //     'XOOSOOOOOOOOOKOOOOOX',
+    //     'XOOOOOHOPOOOOXXOOOOX',
+    //     'XOXXXOOOOMOOOOHOOOOX',
+    //     'XOOOXOOOOOOXOOOOOOOX',
+    //     'DOOBXOOXOOVXOOOOOOOX',
+    //     'XOOOXOOXSXXXOOOOOOOX',
+    //     'XOOOFOOOOOOOOOOOOOOX',
+    //     'XXXXXXXXXXXXXXXXXXXX'
+    //   ]
+    // },
     {
       audio: 'ghost-ritual',
       level: [
-        'XXXXXXXXXXXXXXXXXXXX',
-        'XOOOOOOOOOGOOOOOOOOX',
-        'XOOOXXOOROOOOOOOOOOX',
-        'XOOCOOOOOOSFOOOOOOOX',
-        'XOOSOOOOOOOOOKOOOOOX',
-        'XOOOOOHOPOOOOXXOOOOX',
-        'XOXXXOOOOMOOOOHOOOOX',
-        'XOOOXOOOOOOXOOOOOOOX',
-        'DOOBXOOXOOVXOOOOOOOX',
-        'XOOOXOOXSXXXOOOOOOOX',
-        'XOOOFOOOOOOOOOOOOOOX',
-        'XXXXXXXXXXXXXXXXXXXX'
+        'XXXXXXXXXXXXXXXXXXXXXX',
+        'XMOOOOOOXOOXMOXXOOOOOX',
+        'XXXXOXXXXOXOXOOXOOXXOX',
+        'XORXOXOOOOOOXOXXOOMXOD',
+        'XOXOOOOXOXXOXOOOOXOXOX',
+        'XOXOXXOXOOXOXXOOOOOOOX',
+        'XOOOOOOXOMXOOOOXXXXOOX',
+        'XXXXOXXXOXXOXXOXOOOOXX',
+        'XROOOXOOPOOORXOXOXXOOX',
+        'XOXXOXOXXXOXOXOXOOXOXX',
+        'XOXMOXOXOOOXOOOXXXXOOX',
+        'XOXOXXOOOOOOOOOOKOOOOX',
+        'XOOROOOXXOXXXOOXOOXXOX',
+        'XXMXOXOOXOXOXOXXXOMXOX',
+        'XOXOOXXOXOXOXOOXOOXXOX',
+        'XOOOOOOOOOOOOOOXXOXOOX',
+        'XOXXXXXXOXOXOXOXOOOOOX',
+        'XOOOOOOOOOXMXOOXOXXXOX',
+        'XOXXXOXXXOOOOOOOOOXOOX',
+        'XOXMXOOXOOXXOXXXXOXOXX',
+        'XOXOOOOXOOOXOOOOROXOOX',
+        'XXXXXXXXXXXXXXXXXXXXXX'
       ]
     },
+
     {
       audio: 'ghost-ritual',
       level: [

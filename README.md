@@ -5,5 +5,10 @@
 </p>
 
 <p align="center">
-  First project for WDI LON.
+  **First project for WDI LONDON**
 </p>
+**Welcome to my first project for the WDI course in GA London.**
+
+Instructions:
+
+Media:
