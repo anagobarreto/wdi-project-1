@@ -1,25 +1,25 @@
 $(function() {
   let currentLevel;
-// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
-  $(function () {  // need to fix the flashy whites and the location of the background
-    const body = $('body');
-    const backgrounds = [
-      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/27893_pixelated_pixel_landscape.jpg)',
-      'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)',
-      'url(http://more-sky.com/data/out/6/IMG_127747.png)'];
-    var current = 0;
-
-    function nextBackground() {
-      body.css(
-        'background',
-        backgrounds[current = ++current % backgrounds.length]);
-
-      setTimeout(nextBackground, 2000);
-    }
-    setTimeout(nextBackground, 2000);  // made it faster to test it - change later
-    body.css('background', backgrounds[0]);
-  });
-// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
+  // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
+  // $(function () {  // need to fix the flashy whites and the location of the background
+  //   const body = $('body');
+  //   const backgrounds = [
+  //     'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/27893_pixelated_pixel_landscape.jpg)',
+  //     'url(http://www.imgbase.info/images/safe-wallpapers/digital_art/pixelated/32883_pixelated_8bit_landscape.jpg)',
+  //     'url(http://more-sky.com/data/out/6/IMG_127747.png)'];
+  //   var current = 0;
+  //
+  //   function nextBackground() {
+  //     body.css(
+  //       'background',
+  //       backgrounds[current = ++current % backgrounds.length]);
+  //
+  //     setTimeout(nextBackground, 2000);
+  //   }
+  //   setTimeout(nextBackground, 2000);  // made it faster to test it - change later
+  //   body.css('background', backgrounds[0]);
+  // });
+/// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
 
   function loadLevel(levelData) {
     currentLevel = levelData;
@@ -139,7 +139,7 @@ $(function() {
     return {x: x, y: y};
   }
 
-  // get all the blocks surrounding the input block
+      // get all the blocks surrounding the input block
   function getSurroundingBlocks(block) {
     const surrounding = [];
     const coords = getCoordinates(block);
@@ -154,7 +154,7 @@ $(function() {
     return surrounding;
   }
 
-  // check if the player can walk onto this block
+      // check if the player can walk onto this block
   function canWalk(block) {
     return !block.hasClass('wall') && !block.hasClass('enemy') && !block.hasClass('closed');
   }
@@ -251,9 +251,9 @@ $(function() {
     }
 
     if (e.key === ' ') {
-      // make sure you can only attack once every 0.5 seconds
+      // make sure you can only attack once every 0.4 seconds
       const timeMoveDelta = timeNow - lastAttackTime;
-      if (lastAttackTime && timeMoveDelta < 500) {
+      if (lastAttackTime && timeMoveDelta < 400) {
         return;
       } else {
         lastAttackTime = timeNow;
@@ -378,68 +378,47 @@ $(function() {
   }, 2000);
 
   const levels = [
-    // {
-    //   audio: 'ghost-ritual',
-    //   level: [
-    //     'XXXXXXXXXXXXXXXXXXXX',
-    //     'XOOOOOOOOOGOOOOOOOOX',
-    //     'XOOOXXOOROOOOOOOOOOX',
-    //     'XOOCOOOOOOSFOOOOOOOX',
-    //     'XOOSOOOOOOOOOKOOOOOX',
-    //     'XOOOOOHOPOOOOXXOOOOX',
-    //     'XOXXXOOOOMOOOOHOOOOX',
-    //     'XOOOXOOOOOOXOOOOOOOX',
-    //     'DOOBXOOXOOVXOOOOOOOX',
-    //     'XOOOXOOXSXXXOOOOOOOX',
-    //     'XOOOFOOOOOOOOOOOOOOX',
-    //     'XXXXXXXXXXXXXXXXXXXX'
-    //   ]
-    // },
-    {
-      audio: 'ghost-ritual',
-      level: [
-        'XXXXXXXXXXXXXXXXXXXXXX',
-        'XMOOOOOOXOOXMOXXOOOOOX',
-        'XXXXOXXXXOXOXOOXOOXXOX',
-        'XORXOXOOOOOOXOXXOOMXOD',
-        'XOXOOOOXOXXOXOOOOXOXOX',
-        'XOXOXXOXOOXOXXOOOOOOOX',
-        'XOOOOOOXOMXOOOOXXXXOOX',
-        'XXXXOXXXOXXOXXOXOOOOXX',
-        'XROOOXOOPOOORXOXOXXOOX',
-        'XOXXOXOXXXOXOXOXOOXOXX',
-        'XOXMOXOXOOOXOOOXXXXOOX',
-        'XOXOXXOOOOOOOOOOKOOOOX',
-        'XOOROOOXXOXXXOOXOOXXOX',
-        'XXMXOXOOXOXOXOXXXOMXOX',
-        'XOXOOXXOXOXOXOOXOOXXOX',
-        'XOOOOOOOOOOOOOOXXOXOOX',
-        'XOXXXXXXOXOXOXOXOOOOOX',
-        'XOOOOOOOOOXMXOOXOXXXOX',
-        'XOXXXOXXXOOOOOOOOOXOOX',
-        'XOXMXOOXOOXXOXXXXOXOXX',
-        'XOXOOOOXOOOXOOOOROXOOX',
-        'XXXXXXXXXXXXXXXXXXXXXX'
-      ]
-    },
+        {
+          audio: 'ghost-ritual',
+          level: [
+            'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+            'XMOOOOOOXOXOMOXXOOOOOOOOOX',
+            'XORXOXOOOOOOXOOXOOMXOOOOOD',
+            'XOXOXXOXOOXOXXOOOOOOOXOOOX',
+            'XOOOOOOXOMXOOOOXXXXOOOOOOX',
+            'XXXXOXXXOXXOXXOXOOOOOOXXXX',
+            'XROOOXOOOOOORXOXOXOOOOOOOX',
+            'XOXXOXOXXXOXOXOXRMXOOOOXXX',
+            'XOXMOXOXOOOXOOOXXXXOOOOOOX',
+            'XOXOXXOOKOOOOOOOOOOOOOOOOX',
+            'XOOROOPXXOXXXOOXOOXOOOOXXX',
+            'XOXOOXOOXOXOXOOXOOXXXOOOOX',
+            'XOXXOXXXOOOOOOOXOOOOOOOOOX',
+            'XOOOOOOOOOXRXXXXOXXXOOOXXX',
+            'XOOMXOOXOOXOOOMXXOXOOOOOOX',
+            'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+          ]
+        },
 
-    {
-      audio: 'ghost-ritual',
-      level: [
-        'XXXXXXXXXXXXXXXXXX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOORRRRROOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOKOOOX',
-        'XOOOOOOOPOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'DOOOOOOOOOOOOOOOOX',
-        'XOOOOOOOOOOOOOOOOX',
-        'XXXXXXXXXXXXXXXXXX'
-      ]
-    }
-  ];
 
-  nextLevel();
-});
+
+        {
+          audio: 'ghost-ritual',
+          level: [
+            'XXXXXXXXXXXXXXXXXX',
+            'XOOOOOOOOOOOOOOOOX',
+            'XOOOOOOORRRRROOOOX',
+            'XOOOOOOOOOOOOOOOOX',
+            'XOOOOOOOOOOOOKOOOX',
+            'XOOOOOOOPOOOOOOOOX',
+            'XOOOOOOOOOOOOOOOOX',
+            'XOOOOOOOOOOOOOOOOX',
+            'DOOOOOOOOOOOOOOOOX',
+            'XOOOOOOOOOOOOOOOOX',
+            'XXXXXXXXXXXXXXXXXX'
+          ]
+        }
+      ];
+
+      nextLevel();
+    });
