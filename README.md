@@ -10,5 +10,16 @@
 **Welcome to my first project for the WDI course in GA London.**
 
 Instructions:
+You need to get a key to be able to open the door:
+<img src="images/key.png">
+<img src="images/door.png"
+
+Keys:
+W || ArrowUp
+D || ArrowRight
+S || ArrowDown
+A || ArrowLeft
+
+
 
 Media:
