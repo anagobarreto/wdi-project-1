@@ -20,7 +20,7 @@ ___
 <p align="center">
   <i>The health potion:</i>
 <br>
-<img src="images/hppotion.png" height:"20">
+<img src="images/hppotion.png" height="20">
 </p>
 <p align="center">If you get the health potion your health will be restored by 40pts.</p>
 
@@ -28,7 +28,7 @@ ___
 <p align="center">
   <i>The fast potion:</i>
 <br>
-<img src="images/fastpotion.png" height:"20">
+<img src="images/fastpotion.png" height="20">
 </p>
 <p align="center">If you get the fast potion you'll move much faster.</p>
 
@@ -36,7 +36,7 @@ ___
 <p align="center">
 <i>The strong potion:</i>
 <br>
-<img src="images/strongpotion.png" height:"20">
+<img src="images/strongpotion.png" height="20">
 </p>
 <p align="center"> If you get the strong potion the attacks that you'll receive will damage your health less. </p>
 ___
