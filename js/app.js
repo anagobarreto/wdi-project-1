@@ -215,6 +215,8 @@ $(function() {
 
   let lastMovementTime;
   let lastAttackTime;
+  var score = 0;
+  var scoreText = document.querySelector('#score');
 
   $('body').keydown(function(e) {
     e.preventDefault();
@@ -264,8 +266,7 @@ $(function() {
       }
     }
 
-    var score = 0;
-    var scoreText = document.querySelector('#score');
+
     const goingLeft = y < originalY;
 
     const newBlock = getBlock(x,y);
