@@ -42,6 +42,12 @@ ul li {
   list-style-type: none;
 }
 
+.score {
+  font-family: 'VT323', monospace;
+  font-size: 30px;
+}
+
+
 .grid {
   clear: both;
   background-size: 48px;

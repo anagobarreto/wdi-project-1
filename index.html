@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Orion's Dungeon</title>
     <link href="css/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
@@ -13,6 +14,7 @@
         <div class="health">
           <div class="bar"></div>
         </div>
+        <p class="score">Score: 0</p>
         <div class="logo">
         </div>
         <ul class="lives">
@@ -20,9 +22,18 @@
           <li class="life"></li>
           <li class="life"></li>
         </ul>
-        <p id="score">Score: 0</p>
       </header>
       <div class="grid"></div>
+      <div class="gameover">
+        Game Over
+        <button type="button"><a href="index.html">Retry</a></button>
+        <button type="button" onclick="window.open('', '_self', ''); window.close();">Quit</button>
+
+      </div>
+
+
+
+
       <audio autoplay class="music"></audio>
     </div>
   </body>
