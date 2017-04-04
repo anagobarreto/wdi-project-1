@@ -83,7 +83,7 @@ $(function() {
         // create a rat
         if (block === 'R') {
           colElement.addClass('rat enemy');
-          colElement.attr('data-damage', 20);
+          colElement.attr('data-damage', 10);
           colElement.attr('data-hit', 25);
           colElement.attr('data-sound', 'squeak');
         }
@@ -99,9 +99,9 @@ $(function() {
         // create a bat
         if (block === 'B') {
           colElement.addClass('bat enemy');
-          colElement.attr('data-damage', 20);
+          colElement.attr('data-damage', 15);
           colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'bat', 'batsqueak');
+          colElement.attr('data-sound', 'batsqueak');
         }
 
         // create a crab
@@ -109,12 +109,12 @@ $(function() {
           colElement.addClass('crab enemy');
           colElement.attr('data-damage', 20);
           colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'squeak');
+          colElement.attr('data-sound', 'crab');
         }
         // create a snake
         if (block === 'V') {
           colElement.addClass('snake enemy');
-          colElement.attr('data-damage', 20);
+          colElement.attr('data-damage', 25);
           colElement.attr('data-hit', 25);
           colElement.attr('data-sound', 'squeak');
         }
@@ -288,7 +288,7 @@ $(function() {
       if (newBlock.hasClass('hp potion')) {
         playSound('potionhealth');
         newBlock.removeClass('hp potion');
-        setHealth(parseInt($('.health').attr('data-health')) + 40);
+        setHealth(parseInt($('.health').attr('data-health')) + 55);
       }
 
       if (newBlock.hasClass('speed potion')) {
@@ -304,9 +304,9 @@ $(function() {
       // advance to the next level if the block being moved to is a door
       if (newBlock.hasClass('door')) {
         playSound('door-open');
-        $('.grid').fadeOut(1000, function() {
+        $('.grid').fadeOut(1200, function() {
           nextLevel();
-          $('.grid').fadeIn(1000);
+          $('.grid').fadeIn(1200);
         });
       }
 
@@ -382,7 +382,7 @@ $(function() {
 
   const levels = [
     {
-      audio: 'ghost-ritual',
+      audio: 'theme',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XMOOOCOOXOXOMOXXOOOOOOOOOX',
@@ -392,7 +392,7 @@ $(function() {
         'XXXXOXXXOXXOXXOXOOOOOOXXXX',
         'XROOOXOOOOOORXOXOXOOOOOOOX',
         'XOXXOXOXXXOXOXOXRMXOOOOXXX',
-        'XOXMOXOXOOOXOOOXXXXOOOOOOX',
+        'XOXMOXOXOBOXOOOXXXXOOOOOOX',
         'XOXOXXOOKHOOOOOOOOOOOOOOOX',
         'XOOROOPXXOXXXOOXOOXOOOOXXX',
         'XOXOOXOOXOXOXOOXOOXXXOOOOX',
@@ -406,7 +406,7 @@ $(function() {
 
 
     {
-      audio: 'ghost-ritual',
+      audio: 'theme',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XOXOOOMOOXOOOOOOXOOOOOOOOX',
@@ -427,7 +427,7 @@ $(function() {
       ]
     },
     {
-      audio: 'ghost-ritual',
+      audio: 'theme',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XOOOOXOOOOOOOOXOOOOOXXOBKX',

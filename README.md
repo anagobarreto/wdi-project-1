@@ -59,5 +59,5 @@ spacebar || spacebar <br>
 
 ---
 Inspiration:<br>
-*<a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
-*<a href="http://undertale.com/">Undertale</a></p>
+<a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
+<a href="http://undertale.com/">Undertale</a></p>
