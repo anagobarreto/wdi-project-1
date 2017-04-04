@@ -26,7 +26,7 @@ ___
 
 
 <p align="center">
-  __The fast potion:__
+  <i>The fast potion:</i>
 <br>
 <img src="images/fastpotion.png" height:"20">
 </p>
