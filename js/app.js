@@ -9,7 +9,6 @@ $(function() {
       'url("images/backhround3.png")',
       'url("images/background4.jpg")'
     ];
-
     var current = 0;
 
     function nextBackground() {
@@ -223,7 +222,7 @@ $(function() {
     const timeNow = Date.now();
     const timeMoveDelta = timeNow - lastMovementTime;
     // make sure you can only move 5 blocks a second
-    if (lastMovementTime && timeMoveDelta < 140) {
+    if (lastMovementTime && timeMoveDelta < 130) {
       return;
     } else {
       lastMovementTime = timeNow;
@@ -265,6 +264,8 @@ $(function() {
       }
     }
 
+    var score = 0;
+    var scoreText = document.querySelector('.score');
     const goingLeft = y < originalY;
 
     const newBlock = getBlock(x,y);
@@ -283,6 +284,8 @@ $(function() {
       if (newBlock.hasClass('coin')) {
         playSound('coin');
         newBlock.removeClass('coin');
+        score ++;
+        scoreText.innerHTML = 'Score: '+ score;
       }
 
       if (newBlock.hasClass('hp potion')) {
