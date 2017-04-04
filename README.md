@@ -25,7 +25,7 @@ You need to get a key to be able to open the door:
 
 ## Potions:
 <p align="center">
--**The health potion:**
+**The health potion:**
 <br>
 <img src="images/hppotion.png" height="60">
 </p>
@@ -33,7 +33,7 @@ You need to get a key to be able to open the door:
 
 
 <p align="center">
--**The fast potion:**
+**The fast potion:**
 <br>
 <img src="images/fastpotion.png" height="60">
 </p>
@@ -41,7 +41,7 @@ You need to get a key to be able to open the door:
 
 
 <p align="center">
--**The strong potion:**
+**The strong potion:**
 <br>
 <img src="images/strongpotion.png" height="60">
 </p>
@@ -59,5 +59,5 @@ spacebar || spacebar <br>
 
 ---
 Inspiration:<br>
-<p> <a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
-<p> <a href="http://undertale.com/">Undertale</a></p>
+*<a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
+*<a href="http://undertale.com/">Undertale</a></p>
