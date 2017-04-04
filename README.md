@@ -3,8 +3,7 @@
     <img alt="Orions Dungeons" src="/images/Logo.gif" width="546">
   </a>
 </p>
-
-___
+<br>
 ## First project for WDI London:
 <p>Welcome to my first project for the WDI course in GA London. I decided to create a traditional roguelike game with pixel art graphics. I redrew most of the art by using <a href="https://make8bitart.com/">make8bitart</a>, and recorded most of the sounds at home.</p>
 
@@ -19,7 +18,7 @@ ___
 ## Instructions:
 You need to get a key to be able to open the door:
 <img src="images/key.png" width="80">
-<img src="images/door.png" width="80">
+<img src="images/door.png" width="40" height="80">
 
 <p>Once you go through the door you'll go to the next level. You can earn points by collecting the coins. You will find some enemies and also the following potions throughout the levels:</p>
 
