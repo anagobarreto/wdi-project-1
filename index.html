@@ -11,10 +11,10 @@
   <body>
     <div class="container">
       <header>
+        <p class="score">Score: 0</p>
         <div class="health">
           <div class="bar"></div>
         </div>
-        <p class="score">Score: 0</p>
         <div class="logo">
         </div>
         <ul class="lives">
@@ -22,13 +22,16 @@
           <li class="life"></li>
           <li class="life"></li>
         </ul>
+
       </header>
       <div class="grid"></div>
-      <div class="gameover">
-        Game Over
-        <button type="button"><a href="index.html">Retry</a></button>
-        <button type="button" onclick="window.close()">Quit</button>
-
+      <div class="dialog gameover">
+        <h1>Game Over</h1>
+        <div class="button"><a href="index.html">Retry</a></div>
+      </div>
+      <div class="dialog startmenu">
+        <h1>Welcome</h1>
+        <div class="button">Start</div>
       </div>
 
 

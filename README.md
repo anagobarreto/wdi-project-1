@@ -17,8 +17,8 @@
 ___
 ## Instructions:
 You need to get a key to be able to open the door:
-<img src="images/key.png" width="80">
-<img src="images/door.png" width="40" height="80">
+<img src="images/key.png" width="70">
+<img src="images/door.png" width="50" height="70">
 
 <p>Once you go through the door you'll go to the next level. You can earn points by collecting the coins. You will find some enemies and also the following potions throughout the levels:</p>
 

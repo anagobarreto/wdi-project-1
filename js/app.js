@@ -1,27 +1,15 @@
 $(function() {
-  let currentLevel;
-  // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
-  $(function () {
-    const body = $('body');
-    const backgrounds = [
-      'url("images/background1.jpg")',
-      'url("images/background2.jpg")',
-      'url("images/backhround3.png")',
-      'url("images/background4.jpg")'
-    ];
-    var current = 0;
-
-    function nextBackground() {
-      body.css(
-        'background',
-        backgrounds[current = ++current % backgrounds.length]);
-
-      setTimeout(nextBackground, 10000);
+  $('html').one('click', function() {
+    if (this.webkitRequestFullScreen) {
+      // for chrome
+      this.webkitRequestFullScreen();
+    } else if (this.requestFullScreen) {
+      // for other browsers
+      this.requestFullScreen();
     }
-    setTimeout(nextBackground, 10000);
-    body.css('background', backgrounds[0]);
   });
-/// TEST // TEST // TEST // TEST // TEST // TEST // TEST // TEST
+
+  let currentLevel;
 
   function loadLevel(levelData) {
     currentLevel = levelData;
@@ -82,7 +70,7 @@ $(function() {
         // create a rat
         if (block === 'R') {
           colElement.addClass('rat enemy');
-          colElement.attr('data-damage', 10);
+          colElement.attr('data-damage', 15);
           colElement.attr('data-hit', 25);
           colElement.attr('data-sound', 'squeak');
         }
@@ -163,21 +151,25 @@ $(function() {
 
   function setHealth(health) {
     health = Math.min(health, 100);
+
+    $('.health').attr('data-health', health);
+    $('.health .bar').css('width', health + '%');
+
     if (health <= 0) {
       const lives = $('.life');
 
-      // if only one life left, then it's a game over
-      if (lives.length === 1) {
-        alert('game over');
-      } else {
-        // otherwise, remove a life
-        lives.last().removeClass('life');
+      // remove a life
+      lives.last().removeClass('life');
 
+      if (lives.length === 1) {
+        // if only one life left, then it's a game over
+        $('.player').replaceWith('<li></li>');
+        $('.gameover').show();
+        $('.grid').css('opacity', '0.5');
+      } else {
+        // reload the level and continue
         loadLevel(currentLevel);
       }
-    } else {
-      $('.health').attr('data-health', health);
-      $('.health .bar').css('width', health + '%');
     }
   }
 
@@ -231,6 +223,10 @@ $(function() {
     }
 
     const player = $('.player');
+    if (!player.length) {
+      return;
+    }
+
     const coords = getCoordinates(player);
     let x = coords.x;
     let y = coords.y;
@@ -349,6 +345,10 @@ $(function() {
     const enemies = $('.enemy');
     enemies.each(function(){
       const enemy = $(this);
+      if (Math.random() > 0.3) {
+        return;
+      }
+
       const blocks = getSurroundingBlocks(enemy);
 
       for (const block of blocks) {
@@ -382,28 +382,54 @@ $(function() {
         enemy.replaceWith('<li></li>');
       }
     });
-  }, 2000);
+  }, 500);
 
   const levels = [
     {
       audio: 'theme',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XMOOOCOOXOXOMOXXOOOOOOOOOX',
-        'XORXOXOOOOOOXOOXOOMXOOOOOD',
-        'XOXOXXOXOOXOXXOOOOOOOXOOOX',
-        'XOOOOOOXOMXOFHOXXXXOOOOOOX',
-        'XXXXOXXXOXXOXXOXOOOOOOXXXX',
-        'XROOOXOOOOOORXOXOXOOOOOOOX',
-        'XOXXOXOXXXOXOXOXRMXOOOOXXX',
-        'XOXMOXOXOBOXOOOXXXXOOOOOOX',
-        'XOXOXXOOKHOOOOOOOOOOOOOOOX',
-        'XOOROOPXXOXXXOOXOOXOOOOXXX',
-        'XOXOOXOOXOXOXOOXOOXXXOOOOX',
-        'XOXXOXXXOOOOOOOXOOOOOOOOOX',
-        'XOOOOOOOOOXRXXXXOXXXOOOXXX',
-        'XOOMXOOXOOXOOOMXXOXOOOOOOX',
+        'XOOROOOOXXOOROOOOOOOOOXKRX',
+        'XXXOXXXOOOOXXXOXXOXOOOXOXX',
+        'XOXMXOOOXXOOOOOOXOXXXOOOXX',
+        'XOXXXOXXOOOXMXOOOOOOOOOXXX',
+        'XOOOXOXXOXOOOOOXXXOXXXOOOX',
+        'XXXOOOOXOXOXOXOXOOOOXOOXOX',
+        'XOOXXOXMOXOXPXOXOMXOXOXXMX',
+        'XMROOOOOOOOXXXOOOOOOXOOXOX',
+        'XOOXXOOXXXOOOOOXOXOXXXOOOX',
+        'XXXOOOOOOOOOMOXXOOOOOOOOXX',
+        'XOOXXOXOXXXOOOOOOOXXXOXOOX',
+        'XOOOXOXOOXOOOOXXXOXHXOXXOX',
+        'XXOXXOXOOXOXOXMOXOOOOOXXOX',
+        'DOROOOOOOOOXOXOOROOOOOOXMX',
         'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+
+
+
+
+
+
+
+
+
+
+        // 'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        // 'XMOOOCOOXOXOMOXXOOOOOOOOOX',
+        // 'XORXOXOOOOOOXOOXOOMXOOOOOD',
+        // 'XOXOXXOXOOXOXXOOOOOOOXOOOX',
+        // 'XOOOOOOXOMXOFHOXXXXOOOOOOX',
+        // 'XXXXOXXXOXXOXXOXOOOOOOXXXX',
+        // 'XROOOXOOOOOORXOXOXOOOOOOOX',
+        // 'XOXXOXOXXXOXOXOXRMXOOOOXXX',
+        // 'XOXMOXOXOBOXOOOXXXXOOOOOOX',
+        // 'XOXOXXOOKHOOOOOOOOOOOOOOOX',
+        // 'XOOROOPXXOXXXOOXOOXOOOOXXX',
+        // 'XOXOOXOOXOXOXOOXOOXXXOOOOX',
+        // 'XOXXOXXXOOOOOOOXOOOOOOOOOX',
+        // 'XOOOOOOOOOXRXXXXOXXXOOOXXX',
+        // 'XOOMXOOXOOXOOOMXXOXOOOOOOX',
+        // 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
       ]
     },
 
@@ -453,5 +479,9 @@ $(function() {
     }
   ];
 
-  nextLevel();
+  $('.startmenu .button').click(function() {
+    $('.startmenu').hide();
+    $('.grid').css('opacity', '1');
+    nextLevel();
+  });
 });

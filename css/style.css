@@ -42,16 +42,53 @@ ul li {
   list-style-type: none;
 }
 
+.dialog {
+  display: none;
+  font-family: 'VT323', monospace;
+  color: purple;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  width: 500px;
+  top: 35%;
+  background-color: rgba(0, 0, 0, .9);
+  margin-left: -250px;
+  border-radius: 20px;
+  border: 6px dotted purple;
+}
+
+.dialog h1 {
+  font-size: 90px;
+}
+
+.dialog .button {
+  line-height: 50px;
+  font-size: 30px;
+  background-color: green;
+  border-radius: 20px;
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.startmenu {
+  display: block;
+}
+
 .score {
   font-family: 'VT323', monospace;
   font-size: 30px;
+  margin: 0;
+  float: left;
 }
-
 
 .grid {
   clear: both;
   background-size: 48px;
   background-image: url("../images/floor.png");
+  transition: all 500ms linear;
+  opacity: 0;
 }
 
 .grid ul {
@@ -168,8 +205,10 @@ footer {
   font-size: 20px;
 }
 
-body {
+html {
+  background-image: url('../images/background1.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  height: 100%;
 }
