@@ -18,7 +18,7 @@ Once you go through the door you'll go to the next level. You can earn points by
 ___
 ##Potions:
 <p align="center">
-  __The health potion:__
+  <i>The health potion:</i>
 <br>
 <img src="images/hppotion.png" height:"20">
 </p>
@@ -34,14 +34,14 @@ ___
 
 
 <p align="center">
-The strong potion:
+<i>The strong potion:</i>
 <br>
 <img src="images/strongpotion.png" height:"20">
 </p>
 <p align="center"> If you get the strong potion the attacks that you'll receive will damage your health less. </p>
 ___
 ##Controls:
-Keys
+<i>Keys</i>
 <p align="center">
 W || ArrowUp <br>
 D || ArrowRight <br>
