@@ -265,7 +265,7 @@ $(function() {
     }
 
     var score = 0;
-    var scoreText = document.querySelector('.score');
+    var scoreText = document.querySelector('#score');
     const goingLeft = y < originalY;
 
     const newBlock = getBlock(x,y);
