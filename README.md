@@ -4,7 +4,7 @@
   </a>
 </p>
 <br>
-# 1<sup>st</sup> project for WDI London
+#1<sup>st</sup> project for WDI London
 <p>Welcome to my first project for the WDI course in GA London. I decided to create a traditional roguelike game with pixel art graphics. I redrew most of the art by using <a href="https://make8bitart.com/">make8bitart</a>, and recorded most of the sounds at home.</p>
 
 <p>I learned how to draw the levels by reading the <a href="http://eloquentjavascript.net/15_game.html">chapter 15 of Eloquent Javascript</a>. Writing this game was a bit tricky in the beginning, once I got used to the logic it turned fairly simple as I had to repeat most of it for the different scenarios.</p>
