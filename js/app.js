@@ -52,10 +52,6 @@ $(function() {
           colElement.addClass('strong potion');
         }
 
-        if (block === 'F') { // create a fast potion
-          colElement.addClass('speed potion');
-        }
-
         if (block === 'M') { // creating coins
           colElement.addClass('coin');
         }
@@ -257,20 +253,7 @@ $(function() {
         newBlock.removeClass('hp potion');
         setHealth(parseInt($('.health').attr('data-health')) + 55);
       }
-
-      if (newBlock.hasClass('speed potion')) {
-        playSound('potionspeed');
-        newBlock.removeClass('speed potion');
-
-        const potion = $('<li />');
-        potion.addClass('speed');
-        $('.potions').append(potion);
-
-        setTimeout(function() {
-          $('.potions .speed').remove();
-        }, 10000);
-      }
-
+      
       if (newBlock.hasClass('strong potion')) {
         playSound('potionstrong');
         newBlock.removeClass('strong potion');
@@ -367,7 +350,7 @@ $(function() {
         'XOXMXOOOXXOOOOOOXOXXXOOOXX',
         'XOXXXOXXOOOXMXOOOOOOOOOXXX',
         'XOOOXOXXOXOOOOOXXXOXXXOOOX',
-        'XXXOOOOXOXOXSFOXOOOOXOOXOX',
+        'XXXOOOOXOXOXOXOXOOOOXOOXOX',
         'XOOXXOXMOXOXPXOXOMXOXOXXMX',
         'XMROOOOOOOOXXXOOOOOOXOOXOX',
         'XOOXXOOXXXOOOOOXOXOXXXOOOX',
