@@ -45,16 +45,16 @@ ul li {
 .dialog {
   display: none;
   font-family: 'VT323', monospace;
-  color: purple;
+  color: #ad3210;
   text-align: center;
   position: absolute;
   left: 50%;
   width: 500px;
   top: 35%;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: rgba(16, 139, 173, .9);
   margin-left: -250px;
   border-radius: 20px;
-  border: 6px dotted purple;
+  border: 10px dotted #ad3210;
 }
 
 .dialog h1 {
