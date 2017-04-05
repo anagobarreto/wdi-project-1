@@ -406,7 +406,6 @@ $(function() {
         'DOROOOOOOOOXOXOOROOOOOOXMX',
         'XXXXXXXXXXXXXXXXXXXXXXXXXX'
       ]
-
     }
   ];
 

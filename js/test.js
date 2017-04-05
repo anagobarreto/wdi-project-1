@@ -122,7 +122,7 @@ $(function() {
     surrounding.push(getBlock(coords.x + 1, coords.y + 1)); // bottom right
     return surrounding;
   }
-  
+
   function canWalk(block) { // check if player can walk
     return !block.hasClass('wall') && !block.hasClass('enemy') && !block.hasClass('closed');
   }
@@ -149,7 +149,7 @@ $(function() {
   }
 
   function getBlock(x,y) {
-    return $('.grid ul:nth-child(' + x +')li:nth-child(' + y +')');
+    return $('.grid ul:nth-child(' + x +') li:nth-child(' + y + ')');
   }
 
   function hitClosestEnemyTo(block) {
