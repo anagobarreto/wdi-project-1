@@ -209,6 +209,7 @@ $(function() {
   let lastAttackTime;
   var score = 0;
   var scoreText = document.querySelector('.score');
+  let hasSpeedPotion = true;
 
   $('body').keydown(function(e) {
     e.preventDefault();
@@ -294,6 +295,7 @@ $(function() {
       if (newBlock.hasClass('speed potion')) {
         playSound('potionspeed');
         newBlock.removeClass('speed potion');
+        hasClass('speed.potion') = true;
       }
 
       if (newBlock.hasClass('strong potion')) {

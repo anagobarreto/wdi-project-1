@@ -4,7 +4,10 @@
   </a>
 </p>
 <br>
-## 1<sup>st</sup> project for WDI London <br>
+# 1<sup>st</sup> project for WDI London
+
+## 1<sup>st</sup> project for WDI London
+<br>
 <p>Welcome to my first project for the WDI course in GA London. I decided to create a traditional roguelike game with pixel art graphics. I redrew most of the art by using <a href="https://make8bitart.com/">make8bitart</a>, and recorded most of the sounds at home.</p>
 
 <p>I learned how to draw the levels by reading the <a href="http://eloquentjavascript.net/15_game.html">chapter 15 of Eloquent Javascript</a>. Writing this game was a bit tricky in the beginning, once I got used to the logic it turned fairly simple as I had to repeat most of it for the different scenarios.</p>
@@ -14,8 +17,8 @@
 ___
 ### Instructions:
 You need to get a key to be able to open the door:<br>
-<img src="images/key.png" width="70">
-<img src="images/door.png" width="50" height="70">
+<img src="images/key.png" width="40">
+<img src="images/door.png" width="60" height="75">
 
 <p>Once you go through the door you'll go to the next level. Earn points by collecting the coins in every level. Low on health? Don't worry, just drink a health potion or it'll be restored when you pass the level. You will find some enemies and also the following potions throughout the levels:</p>
 
@@ -56,4 +59,5 @@ spacebar || spacebar <br>
 ---
 Inspiration:<br>
 <p><a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
+<br>
 <a href="http://undertale.com/">Undertale</a></p>
