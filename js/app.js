@@ -1,29 +1,25 @@
 $(function() {
-  $('html').one('click', function() {
-    if (this.webkitRequestFullScreen) {
-      // for chrome
+  $('html').one('click', function(){
+    if (this.webkitRequestFullscreen) { // for chrome
       this.webkitRequestFullScreen();
-    } else if (this.requestFullScreen) {
-      // for other browsers
+    } else if (this.requestFullScreen) { //other browsers
       this.requestFullScreen();
     }
   });
 
-  let currentLevel;
+  let currentLevel;  // let so it can update the level when the player dies
 
   function loadLevel(levelData) {
     currentLevel = levelData;
 
-    // play the sound
-    $('audio.music').attr('src', 'audio/' + levelData.audio + '.mp3');
+    $('audio.music').attr('src','audio/' + levelData.audio + '.mp3'); // get the audio
 
-    // reset health and empty grid
-    setHealth(100);
-    $('.grid').html('');
+    setHealth(100); // reset the health
+    $('.grid').html(''); // empty the grid
 
-    // build the grid
+    // building the grid
     const level = levelData.level;
-    for (let row = 0; row < level.length; row++){
+    for (let row = 0; row < level.length; row++) {
       const cols = level[row].split('');
       const rowElement = $('<ul />');
       $('.grid').append(rowElement);
@@ -32,82 +28,74 @@ $(function() {
         const block = cols[col];
         const colElement = $('<li />');
 
-        // create a wall
-        if (block === 'X') {
+        if (block === 'X') { //creating walls
           colElement.addClass('wall');
         }
 
-        // create a player
-        if (block === 'P') {
+        if (block === 'P') { // creating player
           colElement.addClass('player');
         }
 
-        // create a key
-        if (block === 'K') {
+        if (block === 'K') { // creating key
           colElement.addClass('key');
         }
-        // create a fast potion
-        if (block === 'F') {
-          colElement.addClass('speed potion');
-        }
-        // create a health potion
-        if (block === 'H') {
-          colElement.addClass('hp potion');
-        }
-        // create a strong potion
-        if (block === 'S') {
-          colElement.addClass('strong potion');
-        }
-        if (block === 'M') {
-          colElement.addClass('coin');
-        }
 
-        // create a closed door
-        if (block === 'D') {
+        if (block === 'D') { // creating closed door
           colElement.addClass('door closed');
         }
 
-        // create a rat
+        if (block === 'H') { // creating hp potion
+          colElement.addClass('hp potion');
+        }
+
+        if (block === 'S') { // create a strong potion
+          colElement.addClass('strong potion');
+        }
+
+        if (block === 'F') { // create a fast potion
+          colElement.addClass('speed potion');
+        }
+
+        if (block === 'M') { // creating coins
+          colElement.addClass('coin');
+        }
+        // enemies
         if (block === 'R') {
-          colElement.addClass('rat enemy');
-          colElement.attr('data-damage', 15);
-          colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'squeak');
+          colElement.addClass('rat enemy'); // add class
+          colElement.attr('data-damage', 15); // dmg to player
+          colElement.attr('data-hit', 25); // dmg from player
+          colElement.attr('data-sound', 'squeak'); // sound of enemy
         }
 
-        // create a cat
-        if (block === 'G') {
-          colElement.addClass('orion enemy');
-          colElement.attr('data-damage', 20);
-          colElement.attr('data-hit', 25);
-          colElement.attr('data-sound', 'meow');
-        }
-
-        // create a bat
         if (block === 'B') {
-          colElement.addClass('bat enemy');
-          colElement.attr('data-damage', 15);
-          colElement.attr('data-hit', 25);
+          colElement.addClass('bat enemy'); // add class
+          colElement.attr('data-damage', 20); // dmg to player
+          colElement.attr('data-hit', 25); // dmg from player
           colElement.attr('data-sound', 'batsqueak');
         }
 
-        // create a crab
         if (block === 'C') {
-          colElement.addClass('crab enemy');
-          colElement.attr('data-damage', 20);
-          colElement.attr('data-hit', 25);
+          colElement.addClass('crab enemy'); // add class
+          colElement.attr('data-damage', 20); // dmg to player
+          colElement.attr('data-hit', 25); // dmg from player
           colElement.attr('data-sound', 'crab');
         }
-        // create a snake
+
         if (block === 'V') {
           colElement.addClass('snake enemy');
-          colElement.attr('data-damage', 25);
-          colElement.attr('data-hit', 25);
+          colElement.attr('data-damage', 20); // to player
+          colElement.attr('data-hit', 25); // from player
           colElement.attr('data-sound', 'squeak');
         }
 
-        // add a health bar if this block is an enemy
-        if (colElement.hasClass('enemy')) {
+        if (block === 'G') { // boss
+          colElement.addClass(' orion enemy');
+          colElement.attr('data-damage', 30); // to player
+          colElement.attr('data-hit', 25); //from player
+          colElement.attr('data-sound', 'meow');
+        }
+
+        if (colElement.hasClass('enemy')) { //add health bar if the block is an enemy
           colElement.attr('data-health', 100);
 
           const health = $('<div />');
@@ -129,7 +117,6 @@ $(function() {
     return {x: x, y: y};
   }
 
-      // get all the blocks surrounding the input block
   function getSurroundingBlocks(block) {
     const surrounding = [];
     const coords = getCoordinates(block);
@@ -144,8 +131,7 @@ $(function() {
     return surrounding;
   }
 
-      // check if the player can walk onto this block
-  function canWalk(block) {
+  function canWalk(block) { // check if player can walk
     return !block.hasClass('wall') && !block.hasClass('enemy') && !block.hasClass('closed');
   }
 
@@ -158,17 +144,14 @@ $(function() {
     if (health <= 0) {
       const lives = $('.life');
 
-      // remove a life
       lives.last().removeClass('life');
 
-      if (lives.length === 1) {
-        // if only one life left, then it's a game over
+      if (lives.length === 1) { // if only 1 life left - game over
         $('.player').replaceWith('<li></li>');
         $('.gameover').show();
-        $('.grid').css('opacity', '0.5');
+        $('.grid').css('opacity' , '0.5');
       } else {
-        // reload the level and continue
-        loadLevel(currentLevel);
+        loadLevel(currentLevel);  // reload the lvl n continue
       }
     }
   }
@@ -177,24 +160,24 @@ $(function() {
     return $('.grid ul:nth-child(' + x +') li:nth-child(' + y + ')');
   }
 
-  // hit the closest enemy to the player
   function hitClosestEnemyTo(block) {
     const blocks = getSurroundingBlocks(block);
     for (const enemy of blocks) {
       if (enemy.hasClass('enemy')) {
         const sound = enemy.attr('data-sound');
 
-        // play sound with a delay so punch sound can be heard
         setTimeout(function() {
           playSound(sound);
         }, 300);
 
         const health = parseInt(enemy.attr('data-health'));
-        const hit = parseInt(enemy.attr('data-hit'));
+        let hit = parseInt(enemy.attr('data-hit'));
+        if ($('.potions .strong').length) {
+          hit *= 2;
+        }
         const newHealth = health - hit;
 
         if (newHealth <= 0) {
-          // enemy is dead so replace them with an empty block
           enemy.replaceWith('<li></li>');
         } else {
           enemy.attr('data-health', newHealth);
@@ -205,27 +188,16 @@ $(function() {
     }
   }
 
-  let lastMovementTime;
   let lastAttackTime;
   var score = 0;
   var scoreText = document.querySelector('.score');
-  let hasSpeedPotion = true;
 
   $('body').keydown(function(e) {
     e.preventDefault();
 
-    const timeNow = Date.now();
-    const timeMoveDelta = timeNow - lastMovementTime;
-    // make sure you can only move 5 blocks a second
-    if (lastMovementTime && timeMoveDelta < 130) {
-      return;
-    } else {
-      lastMovementTime = timeNow;
-    }
-
     const player = $('.player');
     if (!player.length) {
-      return;
+      return ;
     }
 
     const coords = getCoordinates(player);
@@ -238,23 +210,20 @@ $(function() {
     if (e.key === 's' || e.key === 'ArrowDown') {
       x++;
     }
-
     if (e.key === 'w' || e.key === 'ArrowUp') {
       x--;
     }
-
     if (e.key === 'a' || e.key === 'ArrowLeft') {
       y--;
     }
-
     if (e.key === 'd' || e.key === 'ArrowRight') {
       y++;
     }
 
     if (e.key === ' ') {
-      // make sure you can only attack once every 0.4 seconds
+      const timeNow = Date.now();
       const timeMoveDelta = timeNow - lastAttackTime;
-      if (lastAttackTime && timeMoveDelta < 400) {
+      if (lastAttackTime && timeMoveDelta < 300) {
         return;
       } else {
         lastAttackTime = timeNow;
@@ -263,16 +232,13 @@ $(function() {
       }
     }
 
-
     const goingLeft = y < originalY;
 
     const newBlock = getBlock(x,y);
-    console.log(newBlock.get(0));
     if (canWalk(newBlock)) {
       player.removeClass('player flip');
       newBlock.addClass('player');
 
-      // open door in the level if the block being moved to is a key
       if (newBlock.hasClass('key')) {
         playSound('pickup-keys');
         newBlock.removeClass('key');
@@ -283,7 +249,7 @@ $(function() {
         playSound('coin');
         newBlock.removeClass('coin');
         score ++;
-        scoreText.innerHTML = 'Score: '+ score;
+        scoreText.innerHTML = 'Score: ' + score;
       }
 
       if (newBlock.hasClass('hp potion')) {
@@ -295,31 +261,44 @@ $(function() {
       if (newBlock.hasClass('speed potion')) {
         playSound('potionspeed');
         newBlock.removeClass('speed potion');
-        hasClass('speed.potion') = true;
+
+        const potion = $('<li />');
+        potion.addClass('speed');
+        $('.potions').append(potion);
+
+        setTimeout(function() {
+          $('.potions .speed').remove();
+        }, 10000);
       }
 
       if (newBlock.hasClass('strong potion')) {
         playSound('potionstrong');
         newBlock.removeClass('strong potion');
+
+        const potion = $('<li />');
+        potion.addClass('strong');
+        $('.potions').append(potion);
+
+        setTimeout(function() {
+          $('.potions .strong').remove();
+        }, 10000);
+
       }
 
-      // advance to the next level if the block being moved to is a door
       if (newBlock.hasClass('door')) {
         playSound('door-open');
-        $('.grid').fadeOut(1200, function() {
+        $('.grid').fadeOut(1200, function () {
           nextLevel();
           $('.grid').fadeIn(1200);
         });
       }
 
-      // flip the player so they face left
       if (goingLeft) {
         newBlock.addClass('flip');
       }
     }
   });
 
-  // load the next level on the levels array
   function nextLevel() {
     if (levels.length) {
       loadLevel(levels.shift());
@@ -329,21 +308,17 @@ $(function() {
     }
   }
 
-  // play a sound inside the audio folder
   function playSound(name) {
     const audio = $('<audio />');
     audio.attr('autoplay', true);
     audio.attr('src', 'audio/' + name + '.mp3');
     $('body').append(audio);
-
   }
 
-  // get a random value from the array
   function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  // make enemies move every 2 seconds or attack player if nearby
   setInterval(function() {
     const enemies = $('.enemy');
     enemies.each(function(){
@@ -355,15 +330,13 @@ $(function() {
       const blocks = getSurroundingBlocks(enemy);
 
       for (const block of blocks) {
-        if (block.hasClass('player')) {
-          // attack player
+        if (block.hasClass('player')) { // attack the player
           const damage = parseInt(enemy.attr('data-damage'));
           const playerHealth = parseInt($('.health').attr('data-health'));
           setHealth(playerHealth - damage);
           playSound('player-hit');
 
-          // return to stop the enemy from moving
-          return;
+          return; // return to stop the enemy from moving
         }
       }
 
@@ -373,15 +346,12 @@ $(function() {
       if (possibleBlocks.length) {
         const newBlock = random(possibleBlocks);
 
-        // 50% chance of the enemy flipping to face the other direction
-        if (Math.random() > 0.5) {
+        if (Math.random() > 0.5) { //50% chance of enemy flipping to face other direction
           enemy.toggleClass('flip');
         }
 
-        // move the enemy to the new position
         newBlock.replaceWith(enemy.clone());
 
-        // replace the enemy's previous position with an empty block
         enemy.replaceWith('<li></li>');
       }
     });
@@ -389,7 +359,7 @@ $(function() {
 
   const levels = [
     {
-      audio: 'theme',
+      audio: 'daft',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XOOROOOOXXOOROOOOOOOOOXKRX',
@@ -397,7 +367,7 @@ $(function() {
         'XOXMXOOOXXOOOOOOXOXXXOOOXX',
         'XOXXXOXXOOOXMXOOOOOOOOOXXX',
         'XOOOXOXXOXOOOOOXXXOXXXOOOX',
-        'XXXOOOOXOXOXOXOXOOOOXOOXOX',
+        'XXXOOOOXOXOXSFOXOOOOXOOXOX',
         'XOOXXOXMOXOXPXOXOMXOXOXXMX',
         'XMROOOOOOOOXXXOOOOOOXOOXOX',
         'XOOXXOOXXXOOOOOXOXOXXXOOOX',
@@ -408,7 +378,73 @@ $(function() {
         'DOROOOOOOOOXOXOOROOOOOOXMX',
         'XXXXXXXXXXXXXXXXXXXXXXXXXX'
       ]
+    },
+    {
+      audio: 'daft',
+      level: [
+        'XXDXXXXXXXXXXXXXXXXXXXXXXX',
+        'XBOOOOOOXMXOOOXMXOOOOOOOBX',
+        'XOXOXOXOOOOOXOOOOOXOOXOXOX',
+        'XOXOXOXOXXOOXOOXXOXXOXOXOX',
+        'XOOOOOOOXOOXOXOOXOOOOOOOOX',
+        'XXOXXOXXXOOOOOOOXXXOXXOXOX',
+        'XMOXOOOOOOOXOXOOOOOOOXOOOX',
+        'XOOXRXOXXXOXPXOXXXOXRXOOOX',
+        'XXOXOOOOOOOXXXOOOOOOOXOXOX',
+        'XXOXXOOXXOOOOOOOXXOOXXOXOX',
+        'XXOOOOOOXOOXXXOOXOOOOOOXOX',
+        'XOOXXXXOXXOXMXOXXOXXXXOXOX',
+        'XOOOOOOOOOOXHXOOOOOOOOOOMX',
+        'XXXOOOOXXOOOROOOXXOOOOXXXX',
+        'XMOOXXOOOOXOXOXOOOMXXOOBKX',
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      ]
+    },
+    {
+      audio: 'daft',
+      level: [
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'XXOOOOOOOOOOMMOOOOOOOOOOXX',
+        'XMOXOOXOOXOOXXOOXOOXOOXOMX',
+        'XXOXOXKBXOXOOOOXOXOOXOXOXX',
+        'XOOOOXXXOOOOXXOOOOXXXOOOVX',
+        'XOOXOOOOOXOOOOOOXOOOOOXOOX',
+        'XOXOXOOOOOOXOOXOOOOOOXRXOX',
+        'XOOOOOOXXXOXPOXOXXXOOOOOOD',
+        'XOXXXOOCOOOXXXXOOBOOOXXXOX',
+        'XOXMXOXOOXOOOOOOOXOOOXMXOX',
+        'XOXOXOXXOOOXXXXOOXXOOXOXOX',
+        'XOOOOOOXOOOOMMOOOOXOOOOOOX',
+        'XOXXOXOOOXXOXXOXXOOOXOXXVX',
+        'XOHXOXXXOOOOXXOOOOXOXOXHOX',
+        'XMOOOOOOOXOOOOOOXOOOOOOOMX',
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      ]
+    },
+    {
+      audio: 'daft',
+      level: [
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'XKBOOOOOOOOOOOOOOOOOOOOOOX',
+        'XXXOXXOXXMOXXXOMXXOXXOXXOX',
+        'XCOOXOOOOOOOOOOOOOOOXBOXOX',
+        'XXOXOOXOOXXXOXXXOOXOOXOXOX',
+        'XMOOXOXOOXOOOOOXOOXOXOMXOX',
+        'XOXOXOOXOXOXXXOXOXOOXOXXOX',
+        'XOXOOXOXOXOXPXOXOXOXOOXVOD',
+        'XOXXOXOOOOOOOOOOOOOXOOXXOX',
+        'XOMXOOXOXOXOXOXOXOXOOOMXOX',
+        'XOXXOOXOXOXXCXXOXOXOXXOXOX',
+        'XOXOOOBOOOOOOOOOOOOOOXOXOX',
+        'XOXOOXXXOXOOXOOXOXXXOOBOOX',
+        'XOXXOOXOOXXXXXXXOOXOOXXXOX',
+        'XCOOOOOOOVOOOOOOOOOOOOOOOX',
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      ]
     }
+
+
+
   ];
 
   $('.startmenu .button').click(function() {

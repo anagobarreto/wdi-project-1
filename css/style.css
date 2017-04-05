@@ -16,15 +16,17 @@ header {
   background-size: 100% auto;
 }
 
-.lives {
+.potions, .lives {
   position: absolute;
   right: 0;
   margin: 0;
   padding: 0;
   top: 10px;
 }
-
-.lives li {
+.potions {
+  right: 200px;
+}
+.potions li, .lives li {
   width: 50px;
   height: 50px;
   background-image: url("../images/death.png");
@@ -34,8 +36,16 @@ header {
 
 .lives li.life {
   background-image: url("../images/lives.png");
-  background-size: 100% auto;
 }
+
+.potions li.strong {
+  background-image: url("../images/strongpotion.png");
+}
+
+.potions li.speed {
+  background-image: url("../images/fastpotion.png");
+}
+
 
 ul li {
   float: left;
