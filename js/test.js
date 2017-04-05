@@ -330,7 +330,7 @@ $(function() {
 
   const levels = [
     {
-      audio: 'theme',
+      audio: 'daft',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XOOROOOOXXOOROOOOOOOOOXKRX',
