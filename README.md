@@ -31,14 +31,14 @@ The health potion:
 <br>
 <img src="images/hppotion.png" height="60">
 </p>
-<p><i>If you get the health potion your health will be restored by 40pts.</i></p>
+<p>If you get the health potion your health will be restored by 40pts.</p>
 
 <p>
 The strong potion:
 <br>
 <img src="images/strongpotion.png" height="60">
 </p>
-<p align="center"><i> If you get the strong potion your attacks will be way stronger for 20 seconds.</i></p>
+<p> If you get the strong potion your attacks will be way stronger for 20 seconds.</p>
 <br>
 
 ### Controls:
