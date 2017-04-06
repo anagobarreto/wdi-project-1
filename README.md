@@ -82,5 +82,5 @@ I chose to design each level as if it was random it might've trap key objects su
 I used Google Sheets to help me with this task as I could set some formatting rules with colors corresponding to the letters that would better help me visualize the level.
 
 <div align="center">
-<img src="images/sheets.png" width="500" height="400">
+<img src="images/sheets.png" width="600" height="400">
 </div>
