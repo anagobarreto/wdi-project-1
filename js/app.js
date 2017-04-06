@@ -342,7 +342,7 @@ $(function() {
 
   const levels = [
     {
-      audio: 'daft',
+      audio: 'theme',
       level: [
         'XXXXXXXXXXXXXXXXXXXXXXXXXX',
         'XOOROOOOXXOOROOOOOOOOOXKRX',
@@ -363,7 +363,7 @@ $(function() {
       ]
     },
     {
-      audio: 'daft',
+      audio: 'theme',
       level: [
         'XXDXXXXXXXXXXXXXXXXXXXXXXX',
         'XBOOOOOOXMXOOOXMXOOOOOOOBX',
