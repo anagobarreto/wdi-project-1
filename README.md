@@ -66,9 +66,8 @@ spacebar || spacebar <br>
 
 ---
 ## Inspiration:<br>
-- <p><a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
-<br>
-- <a href="http://undertale.com/">Undertale</a></p>
+- <p><a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a></p>
+- <p><a href="http://undertale.com/">Undertale</a></p>
 
 ## Credits:
 - <a href="https://www.reddit.com/r/PixelArt/comments/5wmq30/oc_alien_temple/">Background</a>
