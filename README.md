@@ -39,13 +39,14 @@ The strong potion:
 <img src="images/strongpotion.png" height="60">
 </p>
 <p align="center"><i> If you get the strong potion your attacks will be way stronger for 20 seconds.</i></p>
+<br>
 
 ### Controls:
 <p align="center">
-W ||  ArrowUp <br>
-D ||  ArrowRight <br>
-S ||  ArrowDown <br>
-A ||  ArrowLeft <br>
+- W ||  ArrowUp <br>
+- D ||  ArrowRight <br>
+- S ||  ArrowDown <br>
+- A ||  ArrowLeft <br>
 spacebar || spacebar <br>
 </p>
 
