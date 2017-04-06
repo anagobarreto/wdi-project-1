@@ -51,15 +51,14 @@ spacebar || spacebar <br>
 </p>
 
 ---
-## Languages utilised:
-- HTML5;
-- CSS3;
-- JS;
+## Languages:
+- HTML5
+- CSS3
+- JS
 
 ## Libraries:
-- Jquery;
-- Google Fonts;
-
+- <a href="https://jquery.com/">JQuery</a>
+- <a href="https://fonts.google.com/">Google Fonts</a>
 
 ## Inspiration:
 - <a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
