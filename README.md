@@ -47,7 +47,7 @@ The strong potion:
 - D ||  ArrowRight <br>
 - S ||  ArrowDown <br>
 - A ||  ArrowLeft <br>
-spacebar || spacebar <br>
+- spacebar || spacebar <br>
 </p>
 
 ---

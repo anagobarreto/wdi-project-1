@@ -86,8 +86,8 @@ $(function() {
 
         if (block === 'G') { // boss
           colElement.addClass(' orion enemy');
-          colElement.attr('data-damage', 30); // to player
-          colElement.attr('data-hit', 25); //from player
+          colElement.attr('data-damage', 40); // to player
+          colElement.attr('data-hit', 20); //from player
           colElement.attr('data-sound', 'meow');
         }
 
@@ -424,10 +424,28 @@ $(function() {
         'XCOOOOOOOVOOOOOOOOOOOOOOOX',
         'XXXXXXXXXXXXXXXXXXXXXXXXXX'
       ]
+    },
+    {
+      audio: 'castle',
+      level: [
+        'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'XMOOOOOOOOOOMOOOOOOOOOOOPX',
+        'XOXXXXXXXXXXXXXXXXXXXXOOOX',
+        'XOXOOOOOOOOOOOOOOOOROOOOOX',
+        'XOXOXXXXXXXXXXXXXXXXXXXXOX',
+        'XOXOXOOOOOOOVOOOOOOOOOOXOX',
+        'XOXOXOXXXXXXXXXXXXXXXXOXOX',
+        'XMXBXOXKOOVOGOVOOOOOOXCXMX',
+        'XOXOXOXOOOOOVOOOOOXOOXOXOX',
+        'XOXOXOXXXXXXXXXXXXXHSXOXOX',
+        'XOXOXHOOOOOOOOOOOOOOOXOXOX',
+        'XOXOXXXXXXXXXXXXXXXXXXOXOX',
+        'XOXHOOOOOOOOCOOOOOOOOOOXOX',
+        'XOXXXXXXXXXXXXXXXXXXXXXXOX',
+        'XMOOOOOOOOOOMOOOOOOOOOOOMX',
+        'XXXXXXXXXXXXXXXXXXXXXXXXDX'
+      ]
     }
-
-
-
   ];
 
   $('.startmenu .button').click(function() {
