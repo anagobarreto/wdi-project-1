@@ -77,7 +77,7 @@ spacebar || spacebar <br>
 
 ### Designing the levels:
 
-I chose to design each level as if it was random it might've trap key objects such as the key or enemies, and I would like to provide the user the best experience for the game.
+I chose to design each level because if it was randomized it might've trap key objects such as the key or enemies, and I would like to provide the user the best experience for the game.
 
 I used Google Sheets to help me with this task as I could set some formatting rules with colors corresponding to the letters that would better help me visualize the level.
 
