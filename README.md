@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ancient-beach-50566.herokuapp.com/">
+  <a href="https://orionsdungeon.herokuapp.com/">
     <img alt="Orions Dungeons" src="/images/Logo.gif" width="546">
   </a>
 </p>
@@ -41,7 +41,6 @@ The strong potion:
 <p align="center"><i> If you get the strong potion your attacks will be way stronger for 20 seconds.</i></p>
 
 ### Controls:
-<br>
 <p align="center">
 W ||  ArrowUp <br>
 D ||  ArrowRight <br>
