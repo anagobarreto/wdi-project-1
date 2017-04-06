@@ -4,7 +4,9 @@
   </a>
 </p>
 <br>
+
 # 1<sup>st</sup> project for WDI London
+
 <br>
 <p>Welcome to my first project for the WDI course in GA London. I decided to create a traditional roguelike game with pixel art graphics. I redrew most of the art by using <a href="https://make8bitart.com/">make8bitart</a>, and recorded most of the sounds at home.</p>
 
@@ -13,6 +15,7 @@
 <p>I'd say that the attacks of the enemies and the potions were the most challenging part of the creation of this game. I enjoyed a lot drawing most of the stuff and making it more personalized.</p>
 
 <p> Orion's Dungeon was built with web technologies</p>
+
 ## Languages utilised:
 - HTML5;
 - CSS3;
@@ -25,8 +28,10 @@
 ___
 ### Instructions:
 You need to get a key to be able to open the door:<br>
+<div align="center">
 <img src="images/key.png" width="40">
 <img src="images/door.png" width="60" height="75">
+</div>
 
 <p>Once you go through the door you'll go to the next level. Earn points by collecting the coins in every level. Low on health? Don't worry, just drink a health potion or it'll be restored when you pass the level. You will find some enemies and also the following potions throughout the levels:</p>
 
@@ -37,15 +42,6 @@ The health potion:
 <img src="images/hppotion.png" height="60">
 </p>
 <p align="center"><i>If you get the health potion your health will be restored by 40pts.</i></p>
-
-
-<p align="center">
-The fast potion:
-<br>
-<img src="images/fastpotion.png" height="60">
-</p>
-<p align="center"><i>If you get the fast potion you'll move much faster.</i></p>
-
 
 <p align="center">
 The strong potion:
