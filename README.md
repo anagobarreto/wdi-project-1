@@ -18,7 +18,7 @@
 ___
 ### Instructions:
 You need to get a key to be able to open the door:<br>
-<div align="center">
+<div>
 <img src="images/key.png" width="60" height="40">
 <img src="images/door.png" width="60" height="75">
 </div>
@@ -26,14 +26,14 @@ You need to get a key to be able to open the door:<br>
 <p>Once you go through the door you'll go to the next level. Earn points by collecting the coins in every level. Low on health? Don't worry, just drink a health potion or it'll be restored when you pass the level. You will find some enemies and also the following potions throughout the levels:</p>
 
 ### Potions:
-<p align="center">
+<p>
 The health potion:
 <br>
 <img src="images/hppotion.png" height="60">
 </p>
-<p align="center"><i>If you get the health potion your health will be restored by 40pts.</i></p>
+<p><i>If you get the health potion your health will be restored by 40pts.</i></p>
 
-<p align="center">
+<p>
 The strong potion:
 <br>
 <img src="images/strongpotion.png" height="60">
@@ -42,7 +42,7 @@ The strong potion:
 <br>
 
 ### Controls:
-<p align="center">
+<p>
 - W ||  ArrowUp <br>
 - D ||  ArrowRight <br>
 - S ||  ArrowDown <br>
