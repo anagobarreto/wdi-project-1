@@ -38,7 +38,7 @@ The strong potion:
 <br>
 <img src="images/strongpotion.png" height="60">
 </p>
-<p align="center"><i> If you get the strong potion the attacks that you'll receive will damage your health less. </i></p>
+<p align="center"><i> If you get the strong potion your attacks will be way stronger for 20 seconds.</i></p>
 
 ### Controls:
 <br>
@@ -62,8 +62,8 @@ spacebar || spacebar <br>
 
 
 ## Inspiration:
-- <p><a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a></p>
-- <p><a href="http://undertale.com/">Undertale</a></p>
+- <a href="http://pixeldungeon.watabou.ru/">Pixel dungeon</a>
+- <a href="http://undertale.com/">Undertale</a>
 
 ## Credits:
 - <a href="https://www.reddit.com/r/PixelArt/comments/5wmq30/oc_alien_temple/">Background</a>

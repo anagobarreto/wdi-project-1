@@ -253,7 +253,7 @@ $(function() {
         newBlock.removeClass('hp potion');
         setHealth(parseInt($('.health').attr('data-health')) + 55);
       }
-      
+
       if (newBlock.hasClass('strong potion')) {
         playSound('potionstrong');
         newBlock.removeClass('strong potion');
