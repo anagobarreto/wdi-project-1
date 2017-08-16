@@ -5,7 +5,7 @@
     <title>Orion's Dungeon</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   </head>
@@ -25,12 +25,20 @@
           <li class="life"></li>
           <li class="life"></li>
         </ul>
-
       </header>
+
       <div class="grid"></div>
       <div class="dialog startmenu">
         <h1>Welcome</h1>
         <div class="button">Start</div>
+        <div class="buttonInstructions">Instructions</div>
+      </div>
+      <div class="dialog instructions">
+        <h2>Arrow keys or WASD to move</h2>
+        <h2>Spacebar to attack</h2>
+        <h2>Get the key to pass to the next level</h2>
+        <h2>Collect coins</h2>
+        <div class="button"><a href="index.html">Back</a></div>
       </div>
       <div class="dialog win">
         <h1>You win!</h1>
@@ -40,11 +48,6 @@
         <h1>Game Over</h1>
         <div class="button"><a href="index.html">Retry</a></div>
       </div>
-
-
-
-
-
       <audio autoplay class="music"></audio>
     </div>
   </body>

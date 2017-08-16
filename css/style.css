@@ -84,6 +84,25 @@ ul li {
   cursor: pointer;
 }
 
+.dialog .buttonInstructions {
+  color: #F1FAEE;
+  line-height: 50px;
+  font-size: 30px;
+  background-color: #5587A5;
+  border-radius: 1px;
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.dialog .buttonInstructions h2 {
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: #F1FAEE;
+}
+
 .startmenu {
   display: block;
 }

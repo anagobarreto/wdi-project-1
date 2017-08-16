@@ -1,12 +1,4 @@
 $(function() {
-  $('html').one('click', function(){
-    if (this.webkitRequestFullscreen) { // for chrome
-      this.webkitRequestFullScreen();
-    } else if (this.requestFullScreen) { //other browsers
-      this.requestFullScreen();
-    }
-  });
-
   let currentLevel;  // let so it can update the level when the player dies
 
   function loadLevel(levelData) {
@@ -449,8 +441,19 @@ $(function() {
   ];
 
   $('.startmenu .button').click(function() {
+    if (this.webkitRequestFullscreen) { // for chrome
+      this.webkitRequestFullScreen();
+    } else if (this.requestFullScreen) { //other browsers
+      this.requestFullScreen();
+    }
+
     $('.startmenu').hide();
     $('.grid').css('opacity', '1');
     nextLevel();
+  });
+
+  $('.buttonInstructions').click(function() {
+    $('.startmenu').hide();
+    $('.dialog.instructions').show();
   });
 });
