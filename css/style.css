@@ -38,7 +38,16 @@ header {
   background-image: url("../images/lives.png");
 }
 
+
+.potions li.fifty {
+  background-image: url("../images/strongpotion.png");
+}
+
 .potions li.strong {
+  background-image: url("../images/strongpotion.png");
+}
+
+.potions li.teleport {
   background-image: url("../images/strongpotion.png");
 }
 
@@ -145,8 +154,17 @@ ul li {
   background-image: url("../images/key.png");
   background-size: 100% auto;
 }
+.grid ul li.fifty.potion {
+  background-image: url("../images/hppotion.png");
+  background-size: 100% auto;
+}
 .grid ul li.hp.potion {
   background-image: url("../images/hppotion.png");
+  background-size: 100% auto;
+}
+
+.grid ul li.teleport.potion {
+  background-image: url("../images/strongpotion.png");
   background-size: 100% auto;
 }
 
